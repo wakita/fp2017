@@ -1,0 +1,112 @@
+/*
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+*/
+
+.courousel img {
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+  color: #eee;
+}
+
+.navbar-nav>li>a {
+  font-size: 17px;
+}
+
+.navbar-nav ul.dropdown-menu li:first-child a {
+  color: white;
+  background-color: #444;
+  font-weight: bold;
+}
+
+.navbar-nav a[href="#Full-Paper"], a[href="#VisNotes"], a[href="#posters-1"], a[href="#Storytelling_Contest"] {
+  margin-top: 1px;
+  color: white;
+  background-color: #888;
+  font-weight: bold;
+}
+
+h2#Full-Paper, h2#VisNotes, h2#posters-1, h2#Storytelling_Contest {
+  padding-top: 3ex;
+  font-size: 400%;
+  font-weight: bold;
+}
+
+h2#Storytelling_Contest {
+  font-size: 300%;
+}
+
+section[level="1"] {
+  margin-top: 30px;
+  padding-top: 2ex;
+  background-color: #f0f0f0;
+}
+
+section[level="2"] {
+  border-top: dotted thin;
+  padding-top: 2ex;
+}
+
+h1, h2 {
+  /**
+   * A workaround proposed by @josegrad on 26 Oct 2012 in issue #1768
+   * https://github.com/twbs/bootstrap/issues/1768#issuecomment-9793708
+   * > Navbar hides initial content when jumping to in-page anchor
+   **/
+  padding-top: 100px;
+  margin-top: -100px;
+}
+
+dl dd {
+  margin-left: 4ex;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 3ex;
+  margin-bottom: 3ex;
+}
+
+table th, tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fcfcfc;
+}
+
+td {
+  padding: 3px;
+}
+
+figure {
+  text-align: center;
+  margin-top: 3ex;
+  margin-bottom: 3ex;
+}
+
+section a {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+person {
+  text-align: center;
+}
+
+underline {
+  text-decoration: underline;
+}
+
+h2#sponsors ~ .row {
+  padding-top: 1ex;
+  padding-bottom: 1ex;
+}

@@ -14,7 +14,7 @@ date: "Sep. 25, 2017"
 
 - The URL of this page is
 
-> https://github.com/wakita/fp2016
+> https://wakita.github.io/fp2017/01-overview.html
 
 # Assignment
 
@@ -30,18 +30,16 @@ date: "Sep. 25, 2017"
 
 # Support site
 
-Teaching material is found at [GitHub](https://github.com/wakita/fp2016)
+Teaching material is found at [GitHub](https://wakita.github.io/fp2017/)
 
 # 関連サイト
 
-- [OCaml](http://ocaml.org)
+- OCaml installation
 
-    OCamlのインストール
+    - Linux: use the package manager of your Linux distribution
 
-    - Linux: パッケージマネージャを用いる
+    - Mac: `brew install ocaml`
 
-    - Mac: Himebrew を用いる
-
-    - Windows: 上記サイトよりダウンロード
+    - Windows: a binary distribution is available from [the official site](http://protz.github.io/ocaml-installer/)
 
 - [MinCaml](http://esumii.github.io/min-caml/index-e.html)
