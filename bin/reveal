@@ -1,0 +1,15 @@
+#!/bin/sh
+
+md=`echo $1*.md`
+html=`echo "$md" | sed s/md/html/`
+
+cmd() {
+  echo $*
+  $*
+}
+
+cmd pandoc -t revealjs \
+  -V revealjs-url=lib/reveal.js \
+  -V theme=solarized \
+  --standalone --output docs/$html \
+  $md
