@@ -12,7 +12,7 @@ date: "Sep. 25, 2017"
 
 - The organization of the MinCaml compiler
 
-- The URL of this page is
+- The page is found at
 
 > https://wakita.github.io/fp2017/01-overview.html
 
