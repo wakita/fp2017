@@ -7,7 +7,7 @@ const system = require('system');
 const document_url = 'http://localhost:8081/tmp/' + system.args[1] + '.html';
 const jquery_url = 'http://localhost:8081/dev/jquery-3.2.1.min.js';
 const script_url = 'http://localhost:8081/dev/kw.js';
-const html = (system.args[1] == '00-index') ? 'docs/index.html' : 'docs/' + system.args[1] + '.html';
+const html = system.args[2];
 
 console.log(document_url, script_url, html);
 

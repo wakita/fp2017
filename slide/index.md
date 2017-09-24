@@ -4,7 +4,7 @@ title: "Functional Programming"
 css: ["lib/reveal.js-3.5.0/css/theme/solarized.css", "lib/kw.css"]
 ---
 
-- Sep. 25: [Overview](01-overview.html)
+- Sep. 25: [Overview](html/01-overview.html)
 
     Reading assignment & Install OCaml on your laptop
 

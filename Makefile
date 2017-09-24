@@ -38,14 +38,14 @@ docs/html/%.html: slide/%.md docs/dev/kw.js
 	  --to=revealjs --slide-level=2 \
 	  --standalone \
 	  --output=$(html1) \
- 	  -V revealjs-url=lib/reveal.js-3.5.0 \
+ 	  -V revealjs-url=../lib/reveal.js-3.5.0 \
  	  -V theme=solarized \
 	  --smart
 
 	@# Then, PhantomJS is used to patch the temporary HTML and finishes it.
 	@# tmp/*.html -> ../*.html
 	@echo "phantomjs: $(html1) => $(html2)"
-	@phantomjs docs/dev/phantom.js $(slide)
+	@phantomjs docs/dev/phantom.js $(slide) $(html2)
 	@echo
 
 pdf: $(PDF)
