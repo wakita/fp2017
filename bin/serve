@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Start a local web server.  The local server is used for testing-before-publish purpose
+# as well as HTML generation.
+
+cd docs
+php -S localhost:8081 &
+open http://localhost:8081/
