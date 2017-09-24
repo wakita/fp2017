@@ -5,10 +5,10 @@
 all: html
 
 SLIDES   := $(basename $(notdir $(wildcard slide/*-*.md)))
-MD       := $(addprefix slide/,    $(addsuffix .md,   $(SLIDES)))
-HTML_TMP := $(addprefix docs/tmp/, $(addsuffix .html, $(SLIDES)))
-HTML     := $(addprefix docs/,     $(addsuffix .html, $(SLIDES)))
-PDF      := $(addprefix pdf/,      $(addsuffix .pdf,  $(SLIDES)))
+MD       := $(addprefix slide/,     $(addsuffix .md,   $(SLIDES)))
+HTML_TMP := $(addprefix docs/tmp/,  $(addsuffix .html, $(SLIDES)))
+HTML     := $(addprefix docs/html/, $(addsuffix .html, $(SLIDES)))
+PDF      := $(addprefix pdf/,       $(addsuffix .pdf,  $(SLIDES)))
 
 clean:
 	rm -rf $(HTML_TMP)
@@ -25,11 +25,11 @@ html: docs/index.html $(HTML)
 docs/index.html: slide/index.md
 	pandoc --to html --standalone --output $@ $^
 
-docs/%.html: slide/%.md docs/dev/kw.js
+docs/html/%.html: slide/%.md docs/dev/kw.js
 	$(eval slide := $(basename $(notdir $@)))
-	$(eval md    := $(addprefix slide/,    $(addsuffix .md, $(slide))))
-	$(eval html1 := $(addprefix docs/tmp/, $(addsuffix .html, $(slide))))
-	$(eval html2 := $(addprefix docs/,     $(addsuffix .html, $(slide))))
+	$(eval md    := $(addprefix slide/,     $(addsuffix .md,   $(slide))))
+	$(eval html1 := $(addprefix docs/tmp/,  $(addsuffix .html, $(slide))))
+	$(eval html2 := $(addprefix docs/html/, $(addsuffix .html, $(slide))))
 
 	@# Firstly, Pandoc generates a temporary HTML file:
 	@# slide/*.md -> tmp/*.html

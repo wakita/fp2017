@@ -5,7 +5,7 @@ date: "Sep. 25, 2017"
 
 ## Today's course material
 
-![http://bit.ly/fp2017-day1](/images/01-overview.png "QR code")
+![http://bit.ly/fp2017-day1](../images/01-overview.png "QR code")
 
 - Bookmark:
 
