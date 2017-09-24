@@ -5,19 +5,12 @@
 all: html
 
 SLIDES   := $(basename $(notdir $(wildcard slide/*-*.md)))
-MD       := $(addprefix slide/,     $(addsuffix .md,   $(SLIDES)))
 HTML_TMP := $(addprefix docs/tmp/,  $(addsuffix .html, $(SLIDES)))
 HTML     := $(addprefix docs/html/, $(addsuffix .html, $(SLIDES)))
 PDF      := $(addprefix pdf/,       $(addsuffix .pdf,  $(SLIDES)))
 
 clean:
-	rm -rf $(HTML_TMP)
-	rm -f $(HTML) $(PLAIN)
-
-veryclean: clean
-	rm -f $(MD)
-	rm -f .depend
-	bin/depend
+	rm -f $(HTML_TMP) $(HTML) $(PDF)
 
 # Markdown -> HTML is achieved in two-stages.
 html: docs/index.html $(HTML)
@@ -25,7 +18,9 @@ html: docs/index.html $(HTML)
 docs/index.html: slide/index.md
 	pandoc --to html --standalone --output $@ $^
 
-docs/html/%.html: slide/%.md docs/dev/kw.js
+HTML_DEV = docs/dev/kw.js docs/dev/phantom.js docs/dev/slide.yaml
+
+docs/html/%.html: $(HTML_DEV) slide/%.md
 	$(eval slide := $(basename $(notdir $@)))
 	$(eval md    := $(addprefix slide/,     $(addsuffix .md,   $(slide))))
 	$(eval html1 := $(addprefix docs/tmp/,  $(addsuffix .html, $(slide))))
