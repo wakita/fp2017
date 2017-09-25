@@ -7,7 +7,7 @@ date: "Fall, 2017"
 
 ## Guidance
 
-- [Day 1: Overview](/html/01-overview.html)
+- [Day 1: Overview](../html/01-overview.html)
 
 # OCaml Basics
 
