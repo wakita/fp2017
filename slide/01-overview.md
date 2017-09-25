@@ -24,7 +24,7 @@ Note
 
     - Another side note
 
-# Three Assignments<br/>↓
+# Assignments<br/>↓
 
 ## 1. Read the following pages and get ready to OCaml
 
