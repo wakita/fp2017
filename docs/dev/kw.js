@@ -1,6 +1,9 @@
 function sidenotes($body) {
-  $('note').replaceWith(function () {
-    return $('<div class="notes" />').append($(this).contents());
+  $('dl dt:contains("Note")').parent().replaceWith(function () {
+    note = $(this).find('dd').html();
+    $note = $('<aside class="notes"/>');
+    $note.append(note);
+    return $note;
   });
 }
 

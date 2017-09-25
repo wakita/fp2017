@@ -9,6 +9,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../lib/reveal.js-3.5.0/css/reveal.css">
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link rel="stylesheet" href="../lib/reveal.js-3.5.0/css/theme/solarized.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -42,18 +79,20 @@
 <p><a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a></p></li>
 </ul>
 </section>
-<section id="guidance-925" class="slide level2 future" style="top: 152px; display: block;" hidden="" aria-hidden="true">
+<section id="guidance-925" class="slide level2 future" style="top: 44px; display: block;" hidden="" aria-hidden="true">
 <h2>Guidance (9/25)</h2>
 <ul>
-<li><p><a href="http://www.ocw.titech.ac.jp/index.php?module=General&amp;action=T0300&amp;GakubuCD=4&amp;GakkaCD=342323&amp;KeiCD=23&amp;course=23&amp;KougiCD=201704054&amp;Nendo=2017&amp;lang=EN&amp;vid=03">Overview of the lecture</a></p></li>
+<li><p><a href="http://www.ocw.titech.ac.jp/index.php?module=General&amp;action=T0300&amp;GakubuCD=4&amp;GakkaCD=342323&amp;KeiCD=23&amp;course=23&amp;KougiCD=201704054&amp;Nendo=2017&amp;lang=EN&amp;vid=03">Course Description</a></p></li>
 <li><p>Introduction to OCaml</p></li>
 <li><p>The organization of the <a href="http://esumii.github.io/min-caml/index-e.html">MinCaml</a> compiler</p></li>
 </ul>
-<aside class="notes">
-<p>This is a side note.</p>
+<aside class="notes"><ul>
+<li><p>This is a side note.</p></li>
+<li><p>Another side note</p></li>
+</ul>
 </aside>
 </section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="three-assignment" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Three Assignment</h1></section><section id="read-the-following-pages-and-get-ready-to-ocaml" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="three-assignments" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Three Assignments<br>↓</h1></section><section id="read-the-following-pages-and-get-ready-to-ocaml" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
 <h2>1. Read the following pages and get ready to OCaml</h2>
 <ul>
 <li><p><a href="http://ocaml.org/learn/description.html">What is OCaml?</a></p></li>
@@ -66,11 +105,34 @@
 <li><p>Mac: <code>brew install ocaml</code></p></li>
 <li><p>Windows: a binary distribution is available from <a href="http://protz.github.io/ocaml-installer/">the official site</a></p></li>
 </ul>
-</section><section id="bring-your-laptop-for-the-next-class" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
-<h2>3. Bring your laptop for the next class</h2>
+</section><section id="try-out-some" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<h2>3. Try out some</h2>
+<ul>
+<li><p>Start OCaml interpreter: open terminal on Linux /Mac or start <code>cmd.exe</code> on Windows</p></li>
+<li><p>Run <code>ocaml</code>. If your installation is fine OCaml welcomes you with its version number and a prompt <code>#</code>:</p>
+<pre><code>        OCaml version 4.05.0
+
+# </code></pre></li>
+<li><p>Try out some examples from <a href="http://ocaml.org/learn/tutorials/basics.html">OCaml: The Basics</a></p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> repeated s n =
+  <span class="kw">for</span> i = <span class="dv">1</span> <span class="kw">to</span> n <span class="kw">do</span>
+    <span class="dt">print_endline</span>(s)
+  <span class="kw">done</span>;;
+
+repeated <span class="st">"hello"</span> <span class="dv">3</span>;;</code></pre></div></li>
+</ul>
+</section><section id="thats-it" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<h2>That’s it</h2>
+<ul>
+<li><p>Please bring your laptop for the next class</p></li>
+<li><p>Recommended reading:</p>
+<ul>
+<li><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html">Chapter 1: The core language</a> from OCaml manual</li>
+</ul></li>
+</ul>
 </section></section>
     </div>
-  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
   Functional Programming: Day 1
   Ken Wakita (https://wakita.github.io/fp2017/)
   Sep. 25, 2017

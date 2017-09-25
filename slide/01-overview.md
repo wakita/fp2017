@@ -13,23 +13,26 @@ date: "Sep. 25, 2017"
 
 ## Guidance (9/25)
 
-- [Overview of the lecture](http://www.ocw.titech.ac.jp/index.php?module=General&action=T0300&GakubuCD=4&GakkaCD=342323&KeiCD=23&course=23&KougiCD=201704054&Nendo=2017&lang=EN&vid=03)
+- [Course Description](http://www.ocw.titech.ac.jp/index.php?module=General&action=T0300&GakubuCD=4&GakkaCD=342323&KeiCD=23&course=23&KougiCD=201704054&Nendo=2017&lang=EN&vid=03)
 
 - Introduction to OCaml
 
 - The organization of the [MinCaml](http://esumii.github.io/min-caml/index-e.html) compiler
 
-<div class="notes">
-This is a side note.
-</div>
+Note
+: - This is a side note.
 
-# Three Assignment
+    - Another side note
+
+# Three Assignments<br/>↓
 
 ## 1. Read the following pages and get ready to OCaml
 
 - [What is OCaml?](http://ocaml.org/learn/description.html)
 
 - [OCaml: The Basics](http://ocaml.org/learn/tutorials/basics.html)
+
+    Learn the basic syntax (comments, function calls, function definition), basic types, type casting, and functional types.
 
 ## 2. Install OCaml on your laptop
 
@@ -39,4 +42,33 @@ This is a side note.
 
 - Windows: a binary distribution is available from [the official site](http://protz.github.io/ocaml-installer/)
 
-## 3. Bring your laptop for the next class
+## 3. Try out some
+
+- Start OCaml interpreter: open terminal on Linux /Mac or start `cmd.exe` on Windows
+
+- Run `ocaml`.  If your installation is fine OCaml welcomes you with its version number and a prompt `# `:
+
+    ```
+            OCaml version 4.05.0
+
+    # 
+    ```
+
+- Try out some examples from [OCaml: The Basics](http://ocaml.org/learn/tutorials/basics.html)
+
+    ```ocaml
+    let repeated s n =
+      for i = 1 to n do
+        print_endline(s)
+      done;;
+
+    repeated "hello" 3;;
+    ```
+
+## That's it
+
+- Please bring your laptop for the next class
+
+- Recommended reading:
+
+    - [Chapter 1: The core language](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html) from OCaml manual
