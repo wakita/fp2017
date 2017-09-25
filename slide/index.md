@@ -6,6 +6,8 @@ css: ["lib/reveal.js-3.5.0/css/theme/solarized.css", "lib/kw.css"]
 
 - [Course outline](html/00-outline.html)
 
+    [Syllabus](pdf/syllabus.pdf)
+
 - Sep. 25: [Overview](html/01-overview.html)
 
     Reading assignment & Install OCaml on your laptop
