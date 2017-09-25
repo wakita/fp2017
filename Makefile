@@ -14,6 +14,8 @@ clean:
 
 # Markdown -> HTML is achieved in two-stages.
 html: docs/index.html $(HTML)
+	echo $(SLIdES)
+	echo $(HTML)
 
 docs/index.html: slide/index.md
 	pandoc --to html --standalone --output $@ $^
@@ -29,7 +31,7 @@ docs/html/%.html: $(HTML_DEV) slide/%.md
 	@# Firstly, Pandoc generates a temporary HTML file:
 	@# slide/*.md -> tmp/*.html
 	@echo "pandoc:    $(md) => $(html1)"
-	@pandoc docs/dev/slide.yaml $(md) \
+	pandoc docs/dev/slide.yaml $(md) \
 	  --to=revealjs --slide-level=2 \
 	  --standalone \
 	  --output=$(html1) \
