@@ -13,7 +13,7 @@ clean:
 	rm -f $(HTML_TMP) $(HTML) $(PDF)
 
 # Markdown -> HTML is achieved in two-stages.
-html: docs/index.html $(HTML)
+html: server docs/index.html $(HTML)
 	echo $(SLIdES)
 	echo $(HTML)
 
@@ -53,3 +53,9 @@ pdf/%.pdf: docs/%.html
 	$(eval url := $(addprefix http://localhost:8081/, $(addsuffix .html, $(slide))))
 
 	decktape $(url) $(pdf)
+
+server:
+	wget --quiet --spider "http://localhost:8081/" || (cd docs; php -S localhost:8081 &)
+
+shutdown:
+	killall php
