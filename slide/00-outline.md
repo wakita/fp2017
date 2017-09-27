@@ -7,13 +7,13 @@ date: "Fall, 2017"
 
 ## Guidance
 
-- [Day 1: Overview](../html/01-overview.html)
+- [Day 1: Overview](01-overview.html)
 
 # OCaml Basics
 
 ## Introduction to OCaml
 
-Day 2
+[Day 2](02-ocaml1.html)
 :   - Primitive data types
 
     - Compound types (tuples, lists, variants)
@@ -73,3 +73,5 @@ Register assignment
 
 Code generation and the runtime system
 : Generation of executable code
+
+# Back to [Top](/fp2017/)

@@ -5,7 +5,7 @@ date: "Sep. 25, 2017"
 
 ## Today's course material
 
-![http://bit.ly/fp2017-day1](../images/01-overview.png "QR code")
+![http://bit.ly/fp2017-day1](/fp2017/images/01-overview.png "QR code")
 
 - Bookmark:
 
@@ -72,3 +72,5 @@ Note
 - Recommended reading:
 
     - [Chapter 1: The core language](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html) from OCaml manual
+
+# Back to [Top](/fp2017/)

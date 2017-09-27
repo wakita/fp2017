@@ -4,9 +4,9 @@ const fs = require('fs');
 const page = require('webpage').create();
 const system = require('system');
 
-const document_url = 'http://localhost:8081/tmp/' + system.args[1] + '.html';
-const jquery_url = 'http://localhost:8081/dev/jquery-3.2.1.min.js';
-const script_url = 'http://localhost:8081/dev/kw.js';
+const document_url = 'http://localhost:8080/fp2017/tmp/' + system.args[1] + '.html';
+const jquery_url = 'http://localhost:8080/fp2017/dev/jquery-3.2.1.min.js';
+const script_url = 'http://localhost:8080/fp2017/dev/kw.js';
 const html = system.args[2];
 
 console.log(document_url, script_url, html);

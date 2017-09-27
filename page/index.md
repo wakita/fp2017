@@ -1,21 +1,21 @@
 ---
 author: "Ken Wakita"
 title: "Functional Programming"
-css: ["lib/reveal.js-3.5.0/css/theme/solarized.css", "lib/kw.css"]
 ---
 
-- [Course outline](html/00-outline.html)
+## Overview
 
-    [Syllabus](pdf/syllabus.pdf)
+- [Course outline](/fp2017/html/00-outline.html) / [Syllabus](/fp2017/pdf/syllabus.pdf)
 
-- Sep. 25: [Overview](html/01-overview.html)
+## Sep. 25: [Overview](/fp2017/html/01-overview.html)
 
-    Reading assignment & Install OCaml on your laptop
+- [Assignments](http://localhost:8080/fp2017/html/01-overview.html#/assignments) (Reading assignment / Install OCaml on your laptop)
 
-- Sep. 28: Introduction to functional programming in OCaml (1)
+## Sep. 28: [Introduction to functional programming in OCaml (1)](/fp2017/html/02-ocaml1.html)
 
-    Assignment will be placed on OCW-i
+- [Coding Assignment](/fp2017/assignment1.html)
 
+<!--
 - Oct. 2: Introduction to functional programming in OCaml (2)
 
     Assignment will be placed on OCW-i
@@ -35,3 +35,4 @@ css: ["lib/reveal.js-3.5.0/css/theme/solarized.css", "lib/kw.css"]
     (Mini test on typing)
 
 - ...
+-->

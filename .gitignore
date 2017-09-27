@@ -1,3 +1,7 @@
+/docs/tmp
+future
+past
+
 *.annot
 *.cmo
 *.cma
@@ -10,7 +14,6 @@
 
 # ocamlbuild working directory
 _build/
-docs/tmp
 
 # ocamlbuild targets
 *.byte

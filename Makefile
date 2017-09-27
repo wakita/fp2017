@@ -5,24 +5,33 @@
 all: html
 
 SLIDES   := $(basename $(notdir $(wildcard slide/*-*.md)))
-HTML_TMP := $(addprefix docs/tmp/,  $(addsuffix .html, $(SLIDES)))
-HTML     := $(addprefix docs/html/, $(addsuffix .html, $(SLIDES)))
+STML_TMP := $(addprefix docs/tmp/,  $(addsuffix .html, $(SLIDES)))
+STML     := $(addprefix docs/html/, $(addsuffix .html, $(SLIDES)))
 PDF      := $(addprefix pdf/,       $(addsuffix .pdf,  $(SLIDES)))
 
+PAGE     := $(basename $(notdir $(wildcard page/*.md)))
+PTML     := $(addprefix docs/, $(addsuffix .html, $(PAGE)))
+
 clean:
-	rm -f $(HTML_TMP) $(HTML) $(PDF)
+	rm -f $(STML_TMP) $(STML) $(PTML) $(PDF)
 
 # Markdown -> HTML is achieved in two-stages.
-html: server docs/index.html $(HTML)
-	echo $(SLIdES)
-	echo $(HTML)
+html: server $(STML) $(PTML)
 
-docs/index.html: slide/index.md
-	pandoc --to html --standalone --output $@ $^
+docs/%.html: page/%.md
+	pandoc $^ \
+	  --to html \
+	  --standalone \
+	  --output $@ \
+          --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
+	  --css=/fp2017/lib/kw.css \
+	  --css=/fp2017/lib/kw-page.css \
+	  --mathjax \
+	  --smart
 
-HTML_DEV = docs/dev/kw.js docs/dev/phantom.js docs/dev/slide.yaml
+STML_DEV = docs/dev/kw.js docs/dev/phantom.js docs/dev/slide.yaml
 
-docs/html/%.html: $(HTML_DEV) slide/%.md
+docs/html/%.html: $(STML_DEV) slide/%.md
 	$(eval slide := $(basename $(notdir $@)))
 	$(eval md    := $(addprefix slide/,     $(addsuffix .md,   $(slide))))
 	$(eval html1 := $(addprefix docs/tmp/,  $(addsuffix .html, $(slide))))
@@ -33,29 +42,47 @@ docs/html/%.html: $(HTML_DEV) slide/%.md
 	@echo "pandoc:    $(md) => $(html1)"
 	pandoc docs/dev/slide.yaml $(md) \
 	  --to=revealjs --slide-level=2 \
+	  --template=lib/default.revealjs \
 	  --standalone \
 	  --output=$(html1) \
- 	  -V revealjs-url=../lib/reveal.js-3.5.0 \
+ 	  -V revealjs-url=/fp2017/lib/reveal.js-3.5.0 \
  	  -V theme=solarized \
+	  -V slideNumber=true \
+	  --css=/fp2017/lib/kw.css \
+	  --mathjax \
 	  --smart
 
 	@# Then, PhantomJS is used to patch the temporary HTML and finishes it.
-	@# tmp/*.html -> ../*.html
 	@echo "phantomjs: $(html1) => $(html2)"
 	@phantomjs docs/dev/phantom.js $(slide) $(html2)
 	@echo
+
+docs/assignment/%.html: assignment/%.md
+	pandoc $^ \
+	  --to html \
+	  --standalone \
+	  --output $@ \
+          --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
+	  --css=/fp2017/lib/kw.css \
+	  --css=/fp2017/lib/kw-page.css \
+	  --mathjax \
+	  --smart
 
 pdf: $(PDF)
 
 pdf/%.pdf: docs/%.html
 	$(eval slide := $(basename $(notdir $@)))
 	$(eval pdf := $(addprefix pdf/, $(addsuffix .pdf, $(slide))))
-	$(eval url := $(addprefix http://localhost:8081/, $(addsuffix .html, $(slide))))
+	$(eval url := $(addprefix http://localhost:8080/, $(addsuffix .html, $(slide))))
 
 	decktape $(url) $(pdf)
 
-server:
-	wget --quiet --spider "http://localhost:8081/" || (cd docs; php -S localhost:8081 &)
+server: /tmp/server/fp2017
+	wget --quiet --spider "http://localhost:8080/fp2017/" || (cd /tmp/server; php -S localhost:8080 &)
+
+/tmp/server/fp2017:
+	mkdir -p /tmp/server
+	if [ ! -f "$@" ]; then echo $(PWD); ln -s $(PWD)/docs $@; fi
 
 shutdown:
 	killall php
