@@ -12,7 +12,9 @@ Due date
 : Oct. 9, 2017
 
 Method of Submission
-: [OCW-i](https://portal.titech.ac.jp/)
+: [OCW-i](https://secure.ocw.titech.ac.jp/ocwi/)
+
+    Upload `answer1.ml` at the respective page of OCW-i.
 
 Delayed Submission
 : Mark is evaluated by weighing half-value period of 10 days.  That means if you submit a complete answer 30 days after the due date, then you will receive $1/8$ the full points.  It is very wise to keep the due date.
