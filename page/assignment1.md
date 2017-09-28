@@ -68,3 +68,5 @@ Define a function named `rotate` that takes a point coordinate ($p$`: mutable_po
 Hints
 : - [Rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
     - [Section 1.5: Imperative features](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec12)
+
+Go to [Top](/fp2017/)

@@ -36,7 +36,7 @@ let rec fib n =
 ## Primitive Data Types
 
 Primitive data types
-: `bool`, `char`, `float`, `int`, `string`, `int`
+: `bool`, `char`, `float`, `int`, `string`
 
 Attentions
 : - `1` and `1.0` are different
@@ -54,6 +54,8 @@ List values
     - `let is_beautiful = ["is"; "beautiful"]`
 
     - `"Life" :: is_beautiful`
+
+    - `is_beautiful @ is_beautiful`
 
 [manual](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9)
 
@@ -112,12 +114,12 @@ Use pattern matching to retrieve elements from the tuple:
 
 Array values
 : - An empty array: `[| |]`
-    - A triple array: `[| 1.0, 2.0, 4.0 |]`
+    - A triple array: `[| 1.0; 2.0; 4.0 |]`
 
     - A string array: `let beautiful = [| "is"; "beautiful" |]`
 
 Assignent
-: - `beautifule.(0) <- "are"`
+: - `beautiful.(0) <- "are"`
 
 Retrieval
 : - `beautiful.(0)` → `"are"`
