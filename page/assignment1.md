@@ -16,6 +16,8 @@ Method of Submission
 
     Upload `answer1.ml` at the respective page of OCW-i.
 
+    You need to register for this class to open the OCW-i assignment page.
+
 Delayed Submission
 : Mark is evaluated by weighing half-value period of 10 days.  That means if you submit a complete answer 30 days after the due date, then you will receive $1/8$ the full points.  It is very wise to keep the due date.
 
