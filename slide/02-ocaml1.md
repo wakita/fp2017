@@ -132,7 +132,7 @@ let deriv f dx =
     (f (x +. dx) -. f x) /. dx
 ~~~
 
-$$\frac {\partial f} {\partial x} (x)
+$$\frac {\mathrm {d} f} {\mathrm {d} x} (x)
   = \lim_{\Delta x \rightarrow 0} \frac {f(x + \Delta x) - f(x)} {\Delta x}$$
 
 ~~~ {.ocaml}

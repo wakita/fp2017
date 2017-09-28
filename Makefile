@@ -77,12 +77,8 @@ pdf/%.pdf: docs/%.html
 
 	decktape $(url) $(pdf)
 
-server: /tmp/server/fp2017
-	wget --quiet --spider "http://localhost:8080/fp2017/" || (cd /tmp/server; php -S localhost:8080 &)
-
-/tmp/server/fp2017:
-	mkdir -p /tmp/server
-	if [ ! -f "$@" ]; then echo $(PWD); ln -s $(PWD)/docs $@; fi
+server:
+	wget --quiet --spider "http://localhost:8080/fp2017/" || (cd $(HOME)/Sites; php -S localhost:8080 &)
 
 shutdown:
 	killall php
