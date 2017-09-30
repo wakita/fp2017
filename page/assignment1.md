@@ -19,7 +19,7 @@ Method of Submission
     You need to register for this class to open the OCW-i assignment page.
 
 Delayed Submission
-: Mark is evaluated by weighing half-value period of 10 days.  That means if you submit a complete answer 30 days after the due date, then you will receive $1/8$ the full points.  It is very wise to keep the due date.
+: Each submission is weighed half-value period of 10 days.  That means if you submit a complete answer 30 days after the due date, then you will receive $1/8$ the full points.  In other words, you lose $1 - 1/2^{1/10} \approx 6.7\text {%}$ points everyday after the due date has passed.  It is very wise to keep the due date.^[半減期を一週間とすると十一金融並みになるようです．]
 
 # READ the MANUAL FIRST
 
