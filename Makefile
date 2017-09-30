@@ -19,7 +19,8 @@ clean:
 html: server $(STML) $(PTML)
 
 docs/%.html: page/%.md
-	pandoc $^ \
+	@echo "pandoc: $^ => $@"
+	@pandoc $^ \
 	  --to html \
 	  --standalone \
 	  --output $@ \
@@ -48,6 +49,7 @@ docs/html/%.html: $(STML_DEV) slide/%.md
  	  -V revealjs-url=/fp2017/lib/reveal.js-3.5.0 \
  	  -V theme=solarized \
 	  -V slideNumber=true \
+	  -V width=1280 -V height=1024 \
 	  --css=/fp2017/lib/kw.css \
 	  --mathjax \
 	  --smart
@@ -58,7 +60,8 @@ docs/html/%.html: $(STML_DEV) slide/%.md
 	@echo
 
 docs/assignment/%.html: assignment/%.md
-	pandoc $^ \
+	@echo "pandoc: $^ => $@"
+	@pandoc $^ \
 	  --to html \
 	  --standalone \
 	  --output $@ \

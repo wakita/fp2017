@@ -66,15 +66,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;">
   <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
-    <div class="slides" style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.4);">
+    <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
 
-<section style="top: 67px; display: block;" class="present">
+<section style="top: 229px; display: block;" class="present">
   <h1 class="title">Functional Programming: Day 1</h1>
   <p class="author">Ken Wakita (<a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a>)</p>
   <p class="date">Sep. 25, 2017</p>
 </section>
 
-<section id="todays-course-material" class="slide level2 future" style="top: 82px; display: block;" hidden="" aria-hidden="true">
+<section id="todays-course-material" class="slide level2 future" style="top: 244px; display: block;" hidden="" aria-hidden="true">
 <h2>Today’s course material</h2>
 <figure>
 <img src="/fp2017/images/01-overview.png" title="QR code" alt="http://bit.ly/fp2017-day1"><figcaption>http://bit.ly/fp2017-day1</figcaption>
@@ -84,7 +84,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a></p></li>
 </ul>
 </section>
-<section id="guidance-925" class="slide level2 future" style="top: 44px; display: block;" hidden="" aria-hidden="true">
+<section id="guidance-925" class="slide level2 future" style="top: 314px; display: block;" hidden="" aria-hidden="true">
 <h2>Guidance (9/25)</h2>
 <ul>
 <li><p><a href="http://www.ocw.titech.ac.jp/index.php?module=General&amp;action=T0300&amp;GakubuCD=4&amp;GakkaCD=342323&amp;KeiCD=23&amp;course=23&amp;KougiCD=201704054&amp;Nendo=2017&amp;lang=EN&amp;vid=03">Course Description</a></p></li>
@@ -97,21 +97,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </aside>
 </section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="assignments" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Assignments<br>↓</h1></section><section id="read-the-following-pages-and-get-ready-to-ocaml" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="assignments" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Assignments<br>↓</h1></section><section id="read-the-following-pages-and-get-ready-to-ocaml" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>1. Read the following pages and get ready to OCaml</h2>
 <ul>
 <li><p><a href="http://ocaml.org/learn/description.html">What is OCaml?</a></p></li>
 <li><p><a href="http://ocaml.org/learn/tutorials/basics.html">OCaml: The Basics</a></p>
 <p>Learn the basic syntax (comments, function calls, function definition), basic types, type casting, and functional types.</p></li>
 </ul>
-</section><section id="install-ocaml-on-your-laptop" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="install-ocaml-on-your-laptop" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>2. Install OCaml on your laptop</h2>
 <ul>
 <li><p>Linux: use the package manager of your Linux distribution</p></li>
 <li><p>Mac: <code>brew install ocaml</code></p></li>
 <li><p>Windows: a binary distribution is available from <a href="http://protz.github.io/ocaml-installer/">the official site</a></p></li>
 </ul>
-</section><section id="try-out-some" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="try-out-some" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>3. Try out some</h2>
 <ul>
 <li><p>Start OCaml interpreter: open terminal on Linux /Mac or start <code>cmd.exe</code> on Windows</p></li>
@@ -127,7 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 repeated <span class="st">"hello"</span> <span class="dv">3</span>;;</code></pre></div></li>
 </ul>
-</section><section id="thats-it" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="thats-it" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>That’s it</h2>
 <ul>
 <li><p>Please bring your laptop for the next class</p></li>
@@ -137,7 +137,7 @@ repeated <span class="st">"hello"</span> <span class="dv">3</span>;;</code></pre
 </ul></li>
 </ul>
 </section></section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Back to <a href="/fp2017/">Top</a></h1></section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/">Top</a></h1></section></section>
     </div>
   <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
   Functional Programming: Day 1
@@ -157,6 +157,11 @@ repeated <span class="st">"hello"</span> <span class="dv">3</span>;;</code></pre
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 1024,
 
         // Optional reveal.js plugins
         dependencies: [

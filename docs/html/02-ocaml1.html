@@ -63,7 +63,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML-full" id=""></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full" id=""></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js"></script>
 <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
 .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
 .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
@@ -105,25 +105,204 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 #MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
 #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
 .MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-ex-box-test {position: absolute; width: 1px; height: 60ex}
+.mjx-line-box-test {display: table!important}
+.mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
 </style></head>
-<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;">
+<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;"><div id="MathJax_Message" style="">Processing math: 100%</div>
   <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
-    <div class="slides" style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.4);">
+    <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
 
-<section style="top: 0px; display: block;" class="present">
+<section style="top: 138.5px; display: block;" class="present">
   <h1 class="title">FP: Day 2<br>Introduction to OCaml 1</h1>
   <p class="author">Ken Wakita (<a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a>)</p>
   <p class="date">Sep. 28, 2017</p>
 </section>
 
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="basics" class="titleslide slide level1" style="top: 229.5px; display: block;"><h1>Basics</h1></section><section id="basics-interaction" class="slide level2 future" aria-hidden="true" style="top: 88px; display: block;">
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="basics" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Basics</h1></section><section id="basics-interaction" class="slide level2 future" aria-hidden="true" style="top: 300px; display: block;">
 <h2>Basics — Interaction</h2>
 <ul>
 <li><p>The prompt: <code>#</code></p></li>
 <li><p>The termination mark: <code>;;</code></p></li>
 </ul>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec8">manual</a></p>
-</section><section id="basics-definitions" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="basics-definitions" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Basics — Definitions</h2>
 <p>Constants and functions are defined by <code>let</code></p>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> pi = <span class="fl">4.0</span> *. <span class="dt">atan</span> <span class="fl">1.0</span>
@@ -134,7 +313,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">if</span> n &lt; <span class="dv">2</span> <span class="kw">then</span> n
   <span class="kw">else</span> fib (n<span class="dv">-1</span>) + fib (n<span class="dv">-2</span>)</code></pre></div>
 </section></section>
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="primitive-types-and-collections" class="titleslide slide level1" style="top: 0px; display: block;"><h1>Primitive Types and Collections</h1></section><section id="primitive-data-types" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="primitive-types-and-collections" class="titleslide slide level1" style="top: 210.5px; display: block;"><h1>Primitive Types and Collections</h1></section><section id="primitive-data-types" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Primitive Data Types</h2>
 <dl>
 <dt>Primitive data types</dt>
@@ -149,7 +328,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 </dl>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9">manual</a></p>
-</section><section id="lists" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="lists" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Lists</h2>
 <dl>
 <dt>List values</dt>
@@ -162,8 +341,65 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 </dl>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9">manual</a></p>
-</section><section id="pattern-matching-on-lists" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
-<h2>Pattern Matching on Lists</h2>
+</section><section id="pattern-matching-on-lists-13" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Pattern Matching on Lists (1/3)</h2>
+<ul>
+<li>To retrieve an element from a list, we use <strong>pattern matching</strong>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># <span class="kw">match</span> [<span class="dv">1</span>; <span class="dv">2</span>; <span class="dv">3</span>; <span class="dv">4</span>; <span class="dv">5</span>] <span class="kw">with</span>
+    a :: rest -&gt; a;;
+Warning <span class="dv">8</span>: this pattern-matching is <span class="dt">not</span> exhaustive.
+Here is an example <span class="kw">of</span> a case that is <span class="dt">not</span> matched:
+[]
+- : <span class="dt">int</span> = <span class="dv">1</span></code></pre></div>
+</section><section id="pattern-matching-on-lists-23" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Pattern Matching on Lists (2/3)</h2>
+<ul>
+<li><p>Multiple parts of a list can be retrieved by a pattern match.</p></li>
+<li><p>An arbitrary expression is allowed for the result of pattern matching: e.g. <code>(a + b + c, rest)</code>.</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># <span class="kw">match</span> [<span class="dv">1</span>; <span class="dv">2</span>; <span class="dv">3</span>; <span class="dv">4</span>; <span class="dv">5</span>] <span class="kw">with</span>
+    a :: b :: c :: rest -&gt; (a + b + c, rest);;
+Warning <span class="dv">8</span>: this pattern-matching is <span class="dt">not</span> exhaustive.
+Here is an example <span class="kw">of</span> a case that is <span class="dt">not</span> matched:
+(_::_::[]|_::[]|[])
+- : <span class="dt">int</span> * <span class="dt">int</span> <span class="dt">list</span> = (<span class="dv">6</span>, [<span class="dv">4</span>; <span class="dv">5</span>])</code></pre></div>
+<ul>
+<li>This example retrieves four parts <code>a = 1</code>, <code>b = 2</code>, <code>c = 3</code>, <code>rest = [4, 5]</code> and computes <code>a + b + c = 6</code> and pairs this result with the value of <code>rest</code>.</li>
+</ul>
+</section><section id="pattern-matching-on-lists-33" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Pattern Matching on Lists (3/3)</h2>
+<ul>
+<li><p>Why OCaml keeps alerting us with Warning?</p></li>
+<li><p>OCaml presents anti-patterns, like <code>_::_::[]</code>, <code>_::[]</code>, <code>[]</code>, for the last example.</p></li>
+<li><p>Fix is easy. Just deal with anti-patterns.</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># <span class="kw">match</span> [<span class="dv">1</span>; <span class="dv">2</span>; <span class="dv">3</span>; <span class="dv">4</span>; <span class="dv">5</span>] <span class="kw">with</span>
+    a :: rest -&gt; a
+  | _ -&gt; <span class="dt">raise</span> (<span class="dt">Failure</span>(<span class="st">"Can't get value out of an empty list."</span>));;
+- : <span class="dt">int</span> = <span class="dv">1</span>
+# <span class="kw">match</span> [<span class="dv">1</span>; <span class="dv">2</span>; <span class="dv">3</span>; <span class="dv">4</span>; <span class="dv">5</span>] <span class="kw">with</span>
+    a :: b :: c :: rest -&gt; (a + b + c, rest)
+  | _ -&gt; <span class="dt">raise</span> (<span class="dt">Failure</span>(<span class="st">"I don't care about short lists"</span>))
+- : <span class="dt">int</span> * <span class="dt">int</span> <span class="dt">list</span> = (<span class="dv">6</span>, [<span class="dv">4</span>; <span class="dv">5</span>])</code></pre></div>
+<ul>
+<li>As you see, a pattern match can contain multiple patterns: e.g., <code>a :: rest</code> and <code>[]</code> in the first example.</li>
+</ul>
+</section><section id="recursing-on-lists" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Recursing on Lists</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># <span class="kw">let</span> <span class="kw">rec</span> last l =
+    <span class="kw">match</span> l <span class="kw">with</span>
+      [] -&gt; <span class="dt">raise</span> (<span class="dt">Failure</span>(<span class="st">"Empty list"</span>))
+    | [last_element] -&gt; last_element
+    | the_head :: the_rest -&gt; last the_rest;;
+<span class="kw">val</span> last : 'a <span class="dt">list</span> -&gt; 'a = &lt;<span class="kw">fun</span>&gt;
+# last [<span class="dv">1</span>; <span class="dv">2</span>; <span class="dv">3</span>; <span class="dv">4</span>; <span class="dv">5</span>];;
+- : <span class="dt">int</span> = <span class="dv">5</span></code></pre></div>
+</section><section id="mutually-recursive-definition" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Mutually Recursive Definition</h2>
+<ul>
+<li>Mutually recursive functions can be collective defined using the <code>let rec f x = ... and g y = ... and ...</code> syntax.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> sort lst =
   <span class="kw">match</span> lst <span class="kw">with</span>
       [] -&gt; []
@@ -175,14 +411,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">if</span> elt &lt;= head <span class="kw">then</span> elt :: lst
         <span class="kw">else</span> head :: insert elt tail</code></pre></div>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9">manual</a></p>
-</section><section id="type-variable" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="type-variable" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Type Variable</h2>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">val</span> sort : 'a <span class="dt">list</span> -&gt; 'a <span class="dt">list</span> = &lt;<span class="kw">fun</span>&gt;
 <span class="kw">val</span> insert : 'a -&gt; 'a <span class="dt">list</span> -&gt; 'a <span class="dt">list</span> = &lt;<span class="kw">fun</span>&gt;</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># sort is_beautiful;;
 - : <span class="dt">string</span> <span class="dt">list</span> = [<span class="st">"beautiful"</span>; <span class="st">"is"</span>]</code></pre></div>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9">manual</a></p>
-</section><section id="tuples" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="tuples" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Tuples</h2>
 <p>A touple can group together values of different types.</p>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"># <span class="kw">let</span> data = (<span class="ch">'I'</span>, <span class="st">"have"</span>, <span class="dv">2</span>, <span class="st">"apples"</span>);;
@@ -195,7 +431,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <dd>don’t care (or wildcard) symbol
 </dd>
 </dl>
-</section><section id="arrays" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="arrays" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Arrays</h2>
 <dl>
 <dt>Array values</dt>
@@ -216,19 +452,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 </dl>
+</section><section id="lists-vs-arrays" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Lists vs Arrays</h2>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 29%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Arrays</th>
+<th>Lists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Elements modification</td>
+<td>Mutable</td>
+<td>Immutable</td>
+</tr>
+<tr class="even">
+<td>Size</td>
+<td>Fixed</td>
+<td>Can grow with <code>::</code></td>
+</tr>
+<tr class="odd">
+<td>Accessing Elements</td>
+<td>O(1) for every element</td>
+<td>O(1) for the head, O(n) in average</td>
+</tr>
+</tbody>
+</table>
 </section></section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="other-compound-types" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Other Compound Types</h1></section><section id="functions-as-values" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="other-compound-types" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Other Compound Types</h1></section><section id="functions-as-values" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Functions as values</h2>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> deriv f dx =
   <span class="kw">function</span> x -&gt;
     (f (x +. dx) -. f x) /. dx</code></pre></div>
-<p><span class="math display">\[\frac {\mathrm {d} f} {\mathrm {d} x} (x)
-  = \lim_{\Delta x \rightarrow 0} \frac {f(x + \Delta x) - f(x)} {\Delta x}\]</span></p>
+<p><span class="math display"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math MJXp-display" id="MJXp-Span-15"><span class="MJXp-mfrac" id="MJXp-Span-16" style="vertical-align: 0.25em;"><span class="MJXp-box"><span class="MJXp-mrow" id="MJXp-Span-17"><span class="MJXp-mi" id="MJXp-Span-18">d</span></span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-19">f</span></span><span class="MJXp-box" style="margin-top: -0.9em;"><span class="MJXp-denom"><span><span class="MJXp-rule" style="height: 1em; border-top-style: none; border-bottom-width: 1px; border-bottom-style: solid; margin: 0.1em 0px;"></span></span><span><span class="MJXp-box"><span class="MJXp-mrow" id="MJXp-Span-20"><span class="MJXp-mi" id="MJXp-Span-21">d</span></span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-22">x</span></span></span></span></span></span><span class="MJXp-mo" id="MJXp-Span-23" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-24">x</span><span class="MJXp-mo" id="MJXp-Span-25" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-26" style="margin-left: 0.333em; margin-right: 0.333em;">=</span><span class="MJXp-munderover" id="MJXp-Span-27"><span class=""><span class="MJXp-mo" id="MJXp-Span-28" style="margin-left: 0.333em; margin-right: 0.333em;">lim</span></span><span class=" MJXp-script"><span class="MJXp-mrow" id="MJXp-Span-29" style="margin-left: 0px;"><span class="MJXp-mi" id="MJXp-Span-30">Δ</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-31">x</span><span class="MJXp-mo" id="MJXp-Span-32">→</span><span class="MJXp-mn" id="MJXp-Span-33">0</span></span></span></span><span class="MJXp-mfrac" id="MJXp-Span-34" style="vertical-align: 0.25em;"><span class="MJXp-box"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-35">f</span><span class="MJXp-mo" id="MJXp-Span-36" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-37">x</span><span class="MJXp-mo" id="MJXp-Span-38" style="margin-left: 0.267em; margin-right: 0.267em;">+</span><span class="MJXp-mi" id="MJXp-Span-39">Δ</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-40">x</span><span class="MJXp-mo" id="MJXp-Span-41" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-42" style="margin-left: 0.267em; margin-right: 0.267em;">−</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-43">f</span><span class="MJXp-mo" id="MJXp-Span-44" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-45">x</span><span class="MJXp-mo" id="MJXp-Span-46" style="margin-left: 0em; margin-right: 0em;">)</span></span><span class="MJXp-box" style="margin-top: -0.9em;"><span class="MJXp-denom"><span><span class="MJXp-rule" style="height: 1em; border-top-style: none; border-bottom-width: 1px; border-bottom-style: solid; margin: 0.1em 0px;"></span></span><span><span class="MJXp-box"><span class="MJXp-mi" id="MJXp-Span-47">Δ</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-48">x</span></span></span></span></span></span></span></span><span class="mjx-chtml MJXc-display MJXc-processing"><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0"></span></span><script type="math/tex; mode=display" id="MathJax-Element-1">\frac {\mathrm {d} f} {\mathrm {d} x} (x)
+  = \lim_{\Delta x \rightarrow 0} \frac {f(x + \Delta x) - f(x)} {\Delta x}</script></span></p>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> compose f g = <span class="kw">function</span> x -&gt; f (g x)
 <span class="kw">let</span> cos2 = compose square <span class="dt">cos</span></code></pre></div>
-<p><span class="math display">\[(f \circ g)(x) = f(g(x))\]</span></p>
+<p><span class="math display"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math MJXp-display" id="MJXp-Span-49"><span class="MJXp-mo" id="MJXp-Span-50" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-51">f</span><span class="MJXp-mo" id="MJXp-Span-52" style="margin-left: 0.267em; margin-right: 0.267em;">∘</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-53">g</span><span class="MJXp-mo" id="MJXp-Span-54" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-55" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-56">x</span><span class="MJXp-mo" id="MJXp-Span-57" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-58" style="margin-left: 0.333em; margin-right: 0.333em;">=</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-59">f</span><span class="MJXp-mo" id="MJXp-Span-60" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-61">g</span><span class="MJXp-mo" id="MJXp-Span-62" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-63">x</span><span class="MJXp-mo" id="MJXp-Span-64" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-65" style="margin-left: 0em; margin-right: 0em;">)</span></span></span><span class="mjx-chtml MJXc-display MJXc-processing"><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0"></span></span><script type="math/tex; mode=display" id="MathJax-Element-2">(f \circ g)(x) = f(g(x))</script></span></p>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec10">manual</a></p>
-</section><section id="records" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="records" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Records</h2>
 <p>Record type declaration</p>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> ratio = {num: <span class="dt">int</span>; denom: <span class="dt">int</span>}</code></pre></div>
@@ -239,7 +508,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <aside class="notes">Define a function named normalize that takes a rational number of type ratio and gives its normalized form. The normalized form of a rational number whose elements is minimized and the sign of the denominator is positive.
 </aside>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11">manual</a></p>
-</section><section id="variants" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="variants" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Variants</h2>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> sign = Positive | Negative;;
 
@@ -251,7 +520,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><em>Variants</em> are sometimes called <em>tagged union</em>.</p></li>
 </ul>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11">manual</a></p>
-</section><section id="variants-and-recursive-data-types" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;">
+</section><section id="variants-and-recursive-data-types" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Variants and Recursive Data Types</h2>
 <div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> 'a btree =
   Empty
@@ -260,10 +529,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li></li>
 </ul>
 </section></section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="assignment-click" class="titleslide slide level1" style="top: 350px; display: none;"><h1><a href="/fp2017/assignment1.html">Assignment</a><br>Click! ↑</h1></section></section>
-<section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 350px; display: none;"><h1>Back to <a href="/fp2017/">Top</a></h1></section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="assignment-click" class="titleslide slide level1" style="top: 512px; display: none;"><h1><a href="/fp2017/assignment1.html">Assignment</a><br>Click! ↑</h1></section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/">Top</a></h1></section></section>
     </div>
-  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
   FP: Day 2Introduction to OCaml 1
   Ken Wakita (https://wakita.github.io/fp2017/)
   Sep. 28, 2017
@@ -281,6 +550,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 1024,
 
         // Optional reveal.js plugins
         dependencies: [

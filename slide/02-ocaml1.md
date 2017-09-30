@@ -59,7 +59,73 @@ List values
 
 [manual](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec9)
 
-## Pattern Matching on Lists
+## Pattern Matching on Lists (1/3)
+
+- To retrieve an element from a list, we use **pattern matching**.
+
+~~~ {.ocaml}
+# match [1; 2; 3; 4; 5] with
+    a :: rest -> a;;
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+[]
+- : int = 1
+~~~
+
+## Pattern Matching on Lists (2/3)
+
+- Multiple parts of a list can be retrieved by a pattern match.
+
+- An arbitrary expression is allowed for the result of pattern matching: e.g. `(a + b + c, rest)`.
+
+~~~ {.ocaml}
+# match [1; 2; 3; 4; 5] with
+    a :: b :: c :: rest -> (a + b + c, rest);;
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+(_::_::[]|_::[]|[])
+- : int * int list = (6, [4; 5])
+~~~
+
+- This example retrieves four parts `a = 1`, `b = 2`, `c = 3`, `rest = [4, 5]` and computes `a + b + c = 6` and pairs this result with the value of `rest`.
+
+## Pattern Matching on Lists (3/3)
+
+- Why OCaml keeps alerting us with Warning?
+
+- OCaml presents anti-patterns, like `_::_::[]`, `_::[]`, `[]`, for the last example.
+
+- Fix is easy.  Just deal with anti-patterns.
+
+~~~ {.ocaml}
+# match [1; 2; 3; 4; 5] with
+    a :: rest -> a
+  | _ -> raise (Failure("Can't get value out of an empty list."));;
+- : int = 1
+# match [1; 2; 3; 4; 5] with
+    a :: b :: c :: rest -> (a + b + c, rest)
+  | _ -> raise (Failure("I don't care about short lists"))
+- : int * int list = (6, [4; 5])
+~~~
+
+- As you see, a pattern match can contain multiple patterns: e.g., `a :: rest` and `[]` in the first example.
+
+## Recursing on Lists
+
+~~~ {.ocaml}
+# let rec last l =
+    match l with
+      [] -> raise (Failure("Empty list"))
+    | [last_element] -> last_element
+    | the_head :: the_rest -> last the_rest;;
+val last : 'a list -> 'a = <fun>
+# last [1; 2; 3; 4; 5];;
+- : int = 5
+~~~
+
+## Mutually Recursive Definition
+
+- Mutually recursive functions can be collective defined using the `let rec f x = ... and g y = ... and ...` syntax.
 
 ~~~ {.ocaml}
 let rec sort lst =
@@ -123,6 +189,15 @@ Assignent
 
 Retrieval
 : - `beautiful.(0)` → `"are"`
+
+## Lists vs Arrays
+
+| | Arrays | Lists |
+| --------------------- |----------------------- | ---------------------------------- |
+| Elements modification | Mutable | Immutable |
+| Size                  | Fixed                  | Can grow with `::` |
+| Accessing Elements    | O(1) for every element | O(1) for the head, O(n) in average |
+
 
 # Other Compound Types
 
