@@ -73,4 +73,3 @@ Note
 
     - [Chapter 1: The core language](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html) from OCaml manual
 
-# Back to [Top](/fp2017/)

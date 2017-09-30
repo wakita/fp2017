@@ -5,15 +5,15 @@ title: "Functional Programming"
 
 ## Overview
 
-- [Course outline](/fp2017/html/00-outline.html) / [Syllabus](/fp2017/pdf/syllabus.pdf)
+- [Course outline](/fp2017/slide/00-outline.html) / [Syllabus](/fp2017/pdf/syllabus.pdf)
 
-## Sep. 25: [Overview](/fp2017/html/01-overview.html)
+## Sep. 25: [Overview](/fp2017/slide/01-overview.html)
 
-- [Assignments](http://localhost:8080/fp2017/html/01-overview.html#/assignments) (Reading assignment / Install OCaml on your laptop)
+- [Assignments](/fp2017/slide/01-overview.html#assignments) (Reading assignment / Install OCaml on your laptop)
 
-## Sep. 28: [Introduction to functional programming in OCaml (1)](/fp2017/html/02-ocaml1.html)
+## Sep. 28: [Introduction to functional programming in OCaml (1)](/fp2017/slide/02-ocaml1.html)
 
-- [Coding Assignment](/fp2017/assignment1.html)
+- [Coding Assignment](/fp2017/page/assignment1.html) --- A few pages added on Sep. 30.  They reflect some of the questions raised during the class.
 
 <!--
 - Oct. 2: Introduction to functional programming in OCaml (2)

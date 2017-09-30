@@ -5,12 +5,12 @@
 all: html
 
 SLIDES   := $(basename $(notdir $(wildcard slide/*-*.md)))
-STML_TMP := $(addprefix docs/tmp/,  $(addsuffix .html, $(SLIDES)))
-STML     := $(addprefix docs/html/, $(addsuffix .html, $(SLIDES)))
-PDF      := $(addprefix pdf/,       $(addsuffix .pdf,  $(SLIDES)))
+STML_TMP := $(addprefix docs/tmp/,   $(addsuffix .html, $(SLIDES)))
+STML     := $(addprefix docs/slide/, $(addsuffix .html, $(SLIDES)))
+PDF      := $(addprefix pdf/,        $(addsuffix .pdf,  $(SLIDES)))
 
 PAGE     := $(basename $(notdir $(wildcard page/*.md)))
-PTML     := $(addprefix docs/, $(addsuffix .html, $(PAGE)))
+PTML     := $(addprefix docs/page/, $(addsuffix .html, $(PAGE)))
 
 clean:
 	rm -f $(STML_TMP) $(STML) $(PTML) $(PDF)
@@ -18,7 +18,7 @@ clean:
 # Markdown -> HTML is achieved in two-stages.
 html: server $(STML) $(PTML)
 
-docs/%.html: page/%.md
+docs/page/%.html: page/%.md
 	@echo "pandoc: $^ => $@"
 	@pandoc $^ \
 	  --to html \
@@ -32,16 +32,16 @@ docs/%.html: page/%.md
 
 STML_DEV = docs/dev/kw.js docs/dev/phantom.js docs/dev/slide.yaml
 
-docs/html/%.html: $(STML_DEV) slide/%.md
+docs/slide/%.html: $(STML_DEV) slide/%.md
 	$(eval slide := $(basename $(notdir $@)))
 	$(eval md    := $(addprefix slide/,     $(addsuffix .md,   $(slide))))
 	$(eval html1 := $(addprefix docs/tmp/,  $(addsuffix .html, $(slide))))
-	$(eval html2 := $(addprefix docs/html/, $(addsuffix .html, $(slide))))
+	$(eval html2 := $(addprefix docs/slide/, $(addsuffix .html, $(slide))))
 
 	@# Firstly, Pandoc generates a temporary HTML file:
 	@# slide/*.md -> tmp/*.html
 	@echo "pandoc:    $(md) => $(html1)"
-	pandoc docs/dev/slide.yaml $(md) \
+	@pandoc docs/dev/slide.yaml lib/slide-header.md $(md) lib/slide-footer.md\
 	  --to=revealjs --slide-level=2 \
 	  --template=lib/default.revealjs \
 	  --standalone \

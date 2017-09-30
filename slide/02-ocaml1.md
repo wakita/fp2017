@@ -206,7 +206,7 @@ Retrieval
 ~~~ {.ocaml}
 let deriv f dx =
   function x ->
-    (f (x +. dx) -. f x) /. dx
+    (f (x +. dx) -. f x) /. dx;;
 ~~~
 
 $$\frac {\mathrm {d} f} {\mathrm {d} x} (x)
@@ -221,57 +221,59 @@ $$(f \circ g)(x) = f(g(x))$$
 
 [manual](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec10)
 
-## Records
+## Partial Application
 
-Record type declaration
-
-~~~ {.ocaml}
-type ratio = {num: int; denom: int}
-~~~
-
-Data construction
+- In case you feed less values than the function requests, the function returns a partially applied function, which given the rest of the arguments, evalates the body of the function.
 
 ~~~ {.ocaml}
-let r = {num = 12; denom = 15}
+# let max a b =
+  if a > b then a else b;;
+val max : 'a -> 'a -> 'a = <fun>
+
+# max 5 7;;
+- : int = 7
+
+# let max5 = max 5;;
+val max5 : int -> int = <fun>
+
+# max5 7;;
+- : int = 7
 ~~~
 
-Field retrieval
+## Functions in OCaml
+
+- The `let f x y z` syntax is a syntax sugar of `function a -> ...`:
+
+    ~~~ {.ocaml}
+    let f x y z =
+      the_body_of_f
+
+    let f =
+      function x ->
+        function y ->
+          function z ->
+            the_body_of_f
+    ~~~
+
+- Therefore `f a b` creates the following function:
+
+    ``` {.ocaml}
+    let x = a and y = b in
+    function z -> the_body_of_f
+    ```
+
+## Usage of `deriv`
 
 ~~~ {.ocaml}
-r.num
+# let sin' = deriv sin 1e-8;;
+val sin' : float -> float = <fun>
+
+# sin' pi;;
+- : float = -0.999999993922529
+
+# sin' (pi /. 3.0);;
+- : float = 0.499999996961264515
 ~~~
 
-Note
-: Define a function named normalize that takes a rational number of type ratio and gives its normalized form.  The normalized form of a rational number whose elements is minimized and the sign of the denominator is positive.
+# [Assignment](/fp2017/page/assignment1.html)<br/>Click! ↑
 
-[manual](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11)
-
-## Variants
-
-~~~ {.ocaml}
-type sign = Positive | Negative;;
-
-let sign_int n =
-  if n >= 0 then Positive
-  else Negative;;
-~~~
-
-- `sign` is either `Positive` or `Negative`
-
-- *Variants* are sometimes called *tagged union*.
-
-[manual](https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11)
-
-## Variants and Recursive Data Types
-
-~~~ {.ocaml}
-type 'a btree =
-  Empty
-| Node of 'a * 'a btree * 'a btree;;
-~~~
-
-- 
-
-# [Assignment](/fp2017/assignment1.html)<br/>Click! ↑
-
-# Back to [Top](/fp2017/)

@@ -74,4 +74,3 @@ Register assignment
 Code generation and the runtime system
 : Generation of executable code
 
-# Back to [Top](/fp2017/)
