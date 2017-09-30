@@ -22,6 +22,14 @@ code {
   background-color: transparent;
 }
 
+table {
+  width: 90%;
+}
+
+.MathJax_Preview {
+  display: none;
+}
+
 /*
 .lineNumbers pre {
   font-family: source-code-pro, monospace;
