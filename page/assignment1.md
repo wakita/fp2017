@@ -19,7 +19,7 @@ Method of Submission
     You need to register for this class to open the OCW-i assignment page.
 
 Delayed Submission
-: Each submission is weighed according to half-value period of 10 days.  That means if you submit a perfect answer 30 days after the due date, you will receive $1/8$ the full points.  In other words, you lose $1 - 1/2^{1/10} \approx 6.7\text {%}$ points each day after the due date has passed.  It is very wise to keep the due date.^[半減期を一週間とするとトイチ金融並みになるようです．]
+: Each submission is weighed according to half-value period of 10 days.  That means if you submit a perfect answer 30 days after the due date, you will receive $1/8$ the full points.  In other words, you lose $1 - 1/2^{1/10} \approx 6.7\text {%}$ points each day after the due date has passed.  It is very wise to keep the due date.^[この半減期はトイチ金融よりも遥かに非情なので気をつけて下さい．/ This half-value period is much worse than the interest rate of the meanest loan office; time is money.]
 
 # READ the MANUAL FIRST
 
@@ -63,7 +63,7 @@ Hints
 
 ## Problem 5. `rotate`
 
-Define a function named `rotate` that takes a point coordinate ($p$`: mutable_point`) and an angle in radian ($\theta$`: float`) and performs rotation on $p$ by $\theta$.
+Define a function named `rotate` that takes a point coordinate ($p$`: mutable_point`) and an angle in radian ($\theta$`: float`) and performs rotation on $p$ by $\theta$ around the origin.
 
 Hints
 : - [Rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
