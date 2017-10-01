@@ -73,38 +73,141 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="date">Oct. 2, 2017</p>
 </section>
 
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="other-compound-types-continued" class="titleslide slide level1" style="top: 301px; display: block;"><h1>Other Compound Types (continued)</h1></section><section id="records" class="slide level2 future" aria-hidden="true" style="top: 14px; display: block;">
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="user-defined-types-continued" class="titleslide slide level1" style="top: 301px; display: block;"><h1>User Defined Types (continued)</h1></section><section id="records" class="slide level2 future" aria-hidden="true" style="top: 0px; display: block;">
 <h2>Records</h2>
-<p>Record type declaration</p>
-<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> ratio = {num: <span class="dt">int</span>; denom: <span class="dt">int</span>}</code></pre></div>
-<p>Data construction</p>
-<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> r = {num = <span class="dv">12</span>; denom = <span class="dv">15</span>}</code></pre></div>
-<p>Field retrieval</p>
-<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml">r.num</code></pre></div>
+<p>A record can be regarded as a tuple whose elements are accessible by names. For example a <code>ratio</code> record as defined below can be regarded as a pair of <code>int</code>’s whose elements are referenced by <code>num</code> and <code>denom</code>.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> ratio = {num: <span class="dt">int</span>; denom: <span class="dt">int</span>};;</code></pre></div>
+<p>A record data constructed by the following syntax:</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> r = {num = <span class="dv">12</span>; denom = <span class="dv">15</span>};;</code></pre></div>
+<p>And names are used to access its elements:</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml">r.num;;</code></pre></div>
 <aside class="notes">Define a function named normalize that takes a rational number of type ratio and gives its normalized form. The normalized form of a rational number whose elements is minimized and the sign of the denominator is positive.
 </aside>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11">manual</a></p>
-</section><section id="variants" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
-<h2>Variants</h2>
-<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> sign = Positive | Negative;;
+</section><section id="variant-types" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Variant types</h2>
+<p>Variant types can be used to represent a member of finite flags/sets/states/tags. At first, it may look like <code>enum</code> type in C-like languages. For example, the <code>sign</code> type denotes the domain that is either positive or negative.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> sign = Positive | Negative;;</code></pre></div>
+<p><code>Positive</code> and <code>Negative</code> are called <em>constructors</em> of the <code>sign</code> type.</p>
+<p>As we use <code>switch</code> syntax to identify a <code>enum</code> value, we use pattern matching in OCaml:</p>
+<pre><code>let sign_int n =
+  if n &gt;= 0 then Positive
+  else Negative;;</code></pre>
+</section><section id="variant-as-tagged-union" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Variant as Tagged Union</h2>
+<p>Like Java’s <code>Enum</code> type, members of a variant type can have values. In this case, the member’s declaration contains its type: For example, the <code>color</code> type represents colors by several popular colors (black, white, red, …, cyan), and others that are expressed by combinations of red-, green-, blue-intensity.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> color = Black | White | Red | ... | Cyan | RGB <span class="kw">of</span> <span class="dt">int</span> * <span class="dt">int</span> * <span class="dt">int</span>;;
 
-<span class="kw">let</span> sign_int n =
-  <span class="kw">if</span> n &gt;= <span class="dv">0</span> <span class="kw">then</span> Positive
-  <span class="kw">else</span> Negative;;</code></pre></div>
-<ul>
-<li><p><code>sign</code> is either <code>Positive</code> or <code>Negative</code></p></li>
-<li><p><em>Variants</em> are sometimes called <em>tagged union</em>.</p></li>
-</ul>
+<span class="kw">let</span> colors = [Black; White; RGB(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>); RGB(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>); RGB(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>)];;</code></pre></div>
+<p>We use pattern matching to identify the kind of <code>color</code> type and its value if any.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> color_name c =
+  <span class="kw">match</span> c <span class="kw">with</span>
+    case Black -&gt; <span class="st">"black"</span>
+  | ...
+  | RGB(r, g, b) -&gt; <span class="dt">Printf</span>.sprintf <span class="st">"RGB(%d,%d,%d)"</span> r g b;;
+
+<span class="kw">val</span> color_name : color -&gt; <span class="dt">string</span> = &lt;<span class="kw">fun</span>&gt;</code></pre></div>
 <p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/coreexamples.html#sec11">manual</a></p>
 </section><section id="variants-and-recursive-data-types" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Variants and Recursive Data Types</h2>
-<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> 'a btree =
+<p>A recursive data type can be easily defined by referencing the type name being defined in its definition. Let’s look at the definition of the <code>'a binary_tree</code> type:</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">type</span> 'a binary_tree =
   Empty
-| Node <span class="kw">of</span> 'a * 'a btree * 'a btree;;</code></pre></div>
+| Node <span class="kw">of</span> 'a * 'a binary_tree * 'a binary_tree;;
+
+<span class="kw">type</span> 'a binary_tree = Empty | Node <span class="kw">of</span> 'a * 'a binary_tree * 'a binary_tree</code></pre></div>
+<p>It offers two constructors: <code>Empty</code> represents a leaf of a tree and <code>Node</code> an internal node. The <code>Node</code> constructor contains a triple of a value of type <code>'a</code> and two subtrees both of type <code>'a binary_tree</code>.</p>
+</section><section id="an-example-of-a-binary-tree" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>An Example of a Binary Tree</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml">Node(<span class="dv">3</span>, Node(<span class="dv">2</span>, Node(<span class="dv">1</span>, Empty, Empty), Node(<span class="dv">4</span>, Empty, Empty)), Empty)
+
+- : <span class="dt">int</span> binary_tree =
+Node (<span class="dv">3</span>, Node (<span class="dv">2</span>, Node (<span class="dv">1</span>, Empty, Empty), Node (<span class="dv">4</span>, Empty, Empty)), Empty)</code></pre></div>
+<figure>
+<img src="/fp2017/images/03/binary-tree.png" alt="An illustration of a binary tree. The dots and circles depicts Empty and Node, the label of the circle its value, and arrows references to subtrees." height="500"><figcaption>An illustration of a binary tree. The dots and circles depicts <code>Empty</code> and <code>Node</code>, the label of the circle its value, and arrows references to subtrees.</figcaption>
+</figure>
+</section><section id="traversing-a-recursive-data" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Traversing a Recursive Data</h2>
+<p>A function that manipulates of trees can simply be defined by use of pattern matching.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> member x tree =
+  <span class="kw">match</span> tree <span class="kw">with</span>
+    Empty -&gt; <span class="kw">false</span>
+  | Node(y, left, right) -&gt;
+      <span class="kw">if</span> x = y <span class="kw">then</span> <span class="kw">true</span> <span class="kw">else</span>
+      <span class="kw">if</span> x &lt; y <span class="kw">then</span> member x left <span class="kw">else</span> member x right;;
+<span class="kw">val</span> member : 'a -&gt; 'a binary_tree -&gt; <span class="dt">bool</span> = &lt;<span class="kw">fun</span>&gt;</code></pre></div>
+</section><section id="constructing-a-recursive-data" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Constructing a Recursive Data</h2>
+<p>Constructing a recursive data while traversing another. The definition below gives a new binary tree that</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> insert x tree =
+  <span class="kw">match</span> tree <span class="kw">with</span>
+    Empty -&gt; Node(x, Empty, Empty)
+  | Node(y, left, right) -&gt;
+      <span class="kw">if</span> x &lt;= y <span class="kw">then</span> Node(y, insert x left, right)
+                <span class="kw">else</span> Node(y, left, insert x right);;</code></pre></div>
 </section></section>
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Back to <a href="/fp2017/">Top</a></h1></section></section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="exercises" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Exercises</h1></section><section id="exercise-1-values" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Exercise 1: <code>values</code></h2>
+<p>Define a function named <code>values</code> that takes a binary tree and gives a list of values contained in the tree following the order that occur from left to right in the tree.</p>
+<p><code>values Node(3, Node(2, Node(1, Empty, Empty), Node(4, Empty, Empty)), Empty)</code> should give <code>[1, 2, 3, 4]</code>.</p>
+</section><section id="an-answer-to-values" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>An Answer to <code>values</code></h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="co">(* This implimentation is not efficient due to its use of the append operator (`@`).  The comptational complexity is a square of the size of the tree.  Can you guess its worst case scenario? *)</span>
+<span class="kw">let</span> <span class="kw">rec</span> values t =
+  <span class="kw">match</span> t <span class="kw">with</span>
+    | Empty -&gt; []
+    | Node(x, left, right) -&gt; values left @ [x] @ values right;;</code></pre></div>
+</section><section id="a-better-answer-to-values" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>A Better Answer to <code>values</code></h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="co">(* Efficient solution: linear to the size of the tree *)</span>
+<span class="kw">let</span> values t =
+  <span class="kw">let</span> <span class="kw">rec</span> traverse t values =
+    <span class="kw">match</span> t <span class="kw">with</span>
+      | Empty -&gt; values
+      | Node(x, left, right) -&gt;
+          traverse right (x :: traverse left values)
+    <span class="kw">in</span>
+  <span class="dt">List</span>.rev (traverse t []);;</code></pre></div>
+</section><section id="exercise-2-reverse" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Exercise 2: <code>reverse</code></h2>
+<p>Define a function named <code>reverse</code> that takes a binary tree and construct a <em>reversed</em> tree which is the mirror image of the given binary tree.</p>
+<!--
+`reverse Node(3, Node(2, Node(1, Empty, Empty), Empty), Node(4, Empty, Empty)))` should give `Node(3, Empty, Node(2, Node(4, Empty, Empty), Node(1, Empty, Empty)))`
+-->
+<figure>
+<img src="/fp2017/images/03/reverse-tree.png" alt="reverse of the tree"><figcaption><code>reverse</code> of the tree</figcaption>
+</figure>
+</section><section id="an-answer-to-reverse" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>An Answer to <code>reverse</code></h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> reverse t =
+  <span class="kw">match</span> t <span class="kw">with</span>
+    | Empty -&gt; Empty
+    | Node(x, left, right) -&gt; Node(x, reverse right, reverse left);;</code></pre></div>
+</section><section id="exercise-3-is_binary_search_tree" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Exercise 3: <code>is_binary_search_tree</code></h2>
+<p>It is important for the binary search tree that its elements are sorted. If it is not the case the <code>member</code> and <code>insert</code> do not work as we expect: e.g. <code>member 1 (Node(2, Empty, (Node(1, Empty, Empty))))</code> fails to find <code>1</code> contained in the tree.</p>
+<p>Define a function name <code>is_binary_search_tree</code> that takes a tree and tells if it is a binary search tree.</p>
+</section><section id="an-answer-to-is_binary_search_tree" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>An Answer to <code>is_binary_search_tree</code></h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> is_binary_search_tree t =
+  <span class="kw">let</span> <span class="kw">rec</span> aux test t =
+    <span class="kw">match</span> t <span class="kw">with</span>
+      | Empty -&gt; <span class="kw">true</span>
+      | Node(y, left, right) -&gt;
+          test y &amp;&amp;
+          aux (<span class="kw">function</span> x -&gt; x &lt; y) left &amp;&amp;
+          aux (<span class="kw">function</span> x -&gt; x &gt; y) right <span class="kw">in</span>
+  aux (<span class="kw">function</span> _ -&gt; <span class="kw">true</span>) t;;</code></pre></div>
+</section><section id="want-more-detail" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Want more detail?</h2>
+<p>Complete answers to the exercises:</p>
+<ul>
+<li>Download <a href="/fp2017/ocaml/03-exercise.ml"><code>03-exercise.ml</code></a></li>
+</ul>
+</section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/page/">Top</a></h1></section></section>
     </div>
-  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
   FP: Day 3Introduction to OCaml 2
   Ken Wakita (https://wakita.github.io/fp2017/)
   Oct. 2, 2017

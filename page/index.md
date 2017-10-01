@@ -15,11 +15,9 @@ title: "Functional Programming"
 
 - [Coding Assignment](/fp2017/page/assignment1.html) --- A few pages added on Sep. 30.  They reflect some of the questions raised during the class.
 
+## Oct. 2: [Introduction to functional programming in OCaml (2)](/fp2017/slide/03-ocaml2.html)
+
 <!--
-- Oct. 2: Introduction to functional programming in OCaml (2)
-
-    Assignment will be placed on OCW-i
-
 - Oct. 5: Min-Caml compiler organization
 
 - Oct. 12: Lexer and parser

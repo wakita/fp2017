@@ -20,17 +20,18 @@ html: server $(STML) $(PTML)
 
 docs/page/%.html: page/%.md
 	@echo "pandoc: $^ => $@"
-	@pandoc $^ \
+	@pandoc lib/page-header.md $^ lib/page-footer.md \
 	  --to html \
 	  --standalone \
 	  --output $@ \
           --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
 	  --css=/fp2017/lib/kw.css \
 	  --css=/fp2017/lib/kw-page.css \
+	  -V width=1280 -V height=1024 \
 	  --mathjax \
 	  --smart
 
-STML_DEV = docs/dev/kw.js docs/dev/phantom.js docs/dev/slide.yaml
+STML_DEV = docs/dev/kw.js docs/dev/phantom.js lib/slide.yaml
 
 docs/slide/%.html: $(STML_DEV) slide/%.md
 	$(eval slide := $(basename $(notdir $@)))
@@ -41,7 +42,7 @@ docs/slide/%.html: $(STML_DEV) slide/%.md
 	@# Firstly, Pandoc generates a temporary HTML file:
 	@# slide/*.md -> tmp/*.html
 	@echo "pandoc:    $(md) => $(html1)"
-	@pandoc docs/dev/slide.yaml lib/slide-header.md $(md) lib/slide-footer.md\
+	@pandoc lib/slide.yaml lib/slide-header.md $(md) lib/slide-footer.md\
 	  --to=revealjs --slide-level=2 \
 	  --template=lib/default.revealjs \
 	  --standalone \
@@ -61,7 +62,7 @@ docs/slide/%.html: $(STML_DEV) slide/%.md
 
 docs/assignment/%.html: assignment/%.md
 	@echo "pandoc: $^ => $@"
-	@pandoc $^ \
+	@pandoc lib/page-header.md $^ lib/page-footer.md \
 	  --to html \
 	  --standalone \
 	  --output $@ \
