@@ -89,10 +89,10 @@ It offers two constructors: `Empty` represents a leaf of a tree and `Node` an in
 ## An Example of a Binary Tree
 
 ~~~ {.ocaml}
-Node(3, Node(2, Node(1, Empty, Empty), Node(4, Empty, Empty)), Empty)
+Node(4, Node(2, Node(1, Empty, Empty), Node(3, Empty, Empty)), Empty)
 
 - : int binary_tree =
-Node (3, Node (2, Node (1, Empty, Empty), Node (4, Empty, Empty)), Empty)
+Node (4, Node (2, Node (1, Empty, Empty), Node (3, Empty, Empty)), Empty)
 ~~~
 
 ![An illustration of a binary tree.  The dots and circles depicts `Empty` and `Node`, the label of the circle its value, and arrows references to subtrees.](/fp2017/images/03/binary-tree.png){height=500}
@@ -130,7 +130,8 @@ let rec insert x tree =
 
 Define a function named `values` that takes a binary tree and gives a list of values contained in the tree following the order that occur from left to right in the tree.
 
-`values Node(3, Node(2, Node(1, Empty, Empty), Node(4, Empty, Empty)), Empty)` should give `[1, 2, 3, 4]`.
+`values Node(4, Node(2, Node(1, Empty, Empty), Node(3, Empty, Empty)), Node(5, Empty, Empty))
+` should give `[1; 2; 3; 4; 5]`.
 
 ## An Answer to `values`
 
@@ -159,10 +160,6 @@ let values t =
 ## Exercise 2: `reverse`
 
 Define a function named `reverse` that takes a binary tree and construct a *reversed* tree which is the mirror image of the given binary tree.
-
-<!--
-`reverse Node(3, Node(2, Node(1, Empty, Empty), Empty), Node(4, Empty, Empty)))` should give `Node(3, Empty, Node(2, Node(4, Empty, Empty), Node(1, Empty, Empty)))`
--->
 
 ![`reverse` of the tree](/fp2017/images/03/reverse-tree.png)
 
