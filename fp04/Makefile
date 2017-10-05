@@ -1,3 +1,5 @@
+all: main tak_byte tak_opt
+
 main: welcome.ml main.ml
 	ocamlopt -o main welcome.ml main.ml
 
