@@ -17,8 +17,9 @@ title: "Functional Programming"
 
 ## Oct. 2: [Introduction to functional programming in OCaml (2)](/fp2017/slide/03-ocaml2.html)
 
+## Oct. 5: [OCaml tools and standard libraries](/fp2017/slide/04-ocam3.html) / [Examples](https://github.com/wakita/fp2017/tree/master/fp04/)
+
 <!--
-- Oct. 5: Min-Caml compiler organization
 
 - Oct. 12: Lexer and parser
 
