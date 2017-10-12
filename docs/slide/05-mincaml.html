@@ -1,0 +1,424 @@
+<!DOCTYPE html><html class=" js no-mobile desktop no-ie safari safari538 fp2017-section tmp-section w-400 gt-240 gt-320 lt-480 lt-640 lt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920 no-portrait landscape gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions touch no-retina no-fontface domloaded" id="05-mincaml-page"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ken Wakita (https://wakita.github.io/fp2017/)">
+  <meta name="dcterms.date" content="2017-10-12">
+  <title>FP: Day 5 Min-Caml Compiler Organization</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+  </style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="/fp2017/lib/kw.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/fp2017/lib/reveal.js-3.5.0/css/print/pdf.css' : '/fp2017/lib/reveal.js-3.5.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><link rel="stylesheet" type="text/css" href="/fp2017/lib/reveal.js-3.5.0/css/print/paper.css">
+  <!--[if lt IE 9]>
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/html5shiv.js"></script>
+  <![endif]--><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js"></script>
+</head>
+<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;">
+  <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
+    <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
+
+<section style="top: 138.5px; display: block;" class="present">
+  <h1 class="title">FP: Day 5<br>Min-Caml Compiler Organization</h1>
+  <p class="author">Ken Wakita (<a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a>)</p>
+  <p class="date">Oct. 12, 2017</p>
+</section>
+
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="building-min-caml" class="titleslide slide level1" style="top: 389px; display: block;"><h1>Building <code>min-caml</code></h1></section><section id="building-on-mac" class="slide level2 future" aria-hidden="true" style="top: 257px; display: block;">
+<h2>Building on Mac</h2>
+<pre><code>git clone https://github.com/esumii/min-caml.git
+cd min-caml
+./to_x86
+make min-caml</code></pre>
+<ul>
+<li><p>For IS people: The above procedure works on Macs at IS computer room, West-7 building.</p></li>
+<li><p>I think it also works on Linux and “Bash on Ubuntu on Windows”.</p></li>
+</ul>
+</section><section id="building-on-classic-windows" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Building on classic Windows</h2>
+<p>If you are a Windows user and still unable to upgrade your Windows to recent edition (Anniversary edition or Community edition):</p>
+<ul>
+<li><p>Install Cygwin</p></li>
+<li><p>Install <code>gcc-core</code>, <code>make</code>, and <code>ocaml</code> using cygwin setup tool.</p></li>
+<li><p>Follow the <a href="#/building-on-mac">same procedure</a>.</p></li>
+</ul>
+</section><section id="a-healthy-build-log" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>A Healthy Build Log</h2>
+<pre><code>☁  min-caml  make min-caml
+ocamllex  lexer.mll
+82 states, 2498 transitions, table size 10484 bytes
+ocamlyacc  parser.mly
+...
+ocamlc -c -cc "gcc" -ccopt "-g -O2 -Wall -o float.o " float.c ocamlc \
+ float.o -custom -g -warn-error -31 -o min-caml \
+ ...
+File "parser.cmo", line 1:
+Warning 31: files parser.cmo and /usr/local/lib/ocaml/compiler-libs/ocamlcommon.cma(Parser) both define a module named Parser
+File "lexer.cmo", line 1:
+Warning 31: files lexer.cmo and /usr/local/lib/ocaml/compiler-libs/ocamlcommon.cma(Lexer) both define a module named Lexer</code></pre>
+</section><section id="the-build-result" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>The Build Result</h2>
+<pre><code>☁  min-caml  ls -F
+LICENSE         constFold.cmi       lexer.cmo       simm.cmi
+Makefile        constFold.cmo       lexer.ml        simm.cmo
+OCamlMakefile       constFold.ml        lexer.mll       simm.ml
+
+...
+
+anchor.ml       emit.ml         main.mli        to_sparc*
+asm.cmi         emit.mli        min-caml*       to_x86*
+asm.cmo         fdpe05.ppt      min-caml.top*       tutorial-mincaml.doc
+asm.ml          float.c         min-rt/         tutorial-ml.doc
+
+...</code></pre>
+<p>Many files added. Among them is the <code>min-caml</code> compiler. The <code>ls -F</code> command puts <code>*</code> marks after the names of executable files.</p>
+</section></section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="playing-with-min-caml" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Playing with Min-Caml</h1></section><section id="min-caml-command-line-arguments" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Min-Caml Command Line Arguments</h2>
+<pre><code>☁  min-caml  ./min-caml --help
+Mitou Min-Caml Compiler (C) Eijiro Sumii
+usage: ./min-caml [-inline m] [-iter n] ...filenames without ".ml"...
+  -inline maximum size of functions inlined
+  -iter maximum number of optimizations iterated
+  -help  Display this list of options
+  --help  Display this list of options</code></pre>
+<ul>
+<li><p>Prepare a min-caml program such as <code>fib.ml</code>. Min-caml program names must end with <code>.ml</code>.</p></li>
+<li><p>But do not put <code>.ml</code> when you execute <code>min-caml</code> command.</p></li>
+</ul>
+</section><section id="compiling-fib.ml-with-min-caml" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Compiling <code>fib.ml</code> with Min-Caml</h2>
+<pre><code>☁  kw  pwd; ls -F
+/Users/wakita/Dropbox/projects/fp/min-caml/kw
+fib.ml
+
+☁  kw  ../min-caml fib
+free variable print_int assumed as external
+free variable print_newline assumed as external
+iteration 1000
+iteration 999
+directly applying fib.17
+directly applying fib.17
+directly applying loop.19
+directly applying fib.17
+directly applying loop.19
+eliminating closure(s) loop.19
+eliminating closure(s) fib.17
+register allocation: may take some time (up to a few minutes, depending on the size of functions)
+generating assembly...
+
+☁  kw  ls -F
+fib.ml  fib.s</code></pre>
+</section><section id="linking-fib-using-a-c-compiler" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Linking <code>fib</code> Using a C Compiler</h2>
+<pre><code>☁  kw  clang -m32 -O2 -Wall fib.s ../libmincaml.S ../stub.c -lm -o fib
+ld: warning: PIE disabled. Absolute addressing (perhaps -mdynamic-no-pic) not allowed in code signed PIE, but used in _min_caml_start from /var/folders/6l/z36pjysn4zx7hpfzmcfv4xqh0000gn/T/fib-fd883b.o. To fix this warning, don't compile with -mdynamic-no-pic or link with -Wl,-no_pie
+
+☁  kw  ls -FC
+fib*    fib.ml  fib.s</code></pre>
+<p>Use the standard C compiler on your platform. The above example uses <code>clang</code>: the standard on macOS. Users of other platforms may want to use other compilers, like <code>gcc</code>, <code>icc</code>.</p>
+</section><section id="running-fib" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Running <code>fib</code></h2>
+<pre><code>☁  kw  ./fib
+sp = 0xbff0afc0, hp = 0x200000
+1346269
+1346269
+1346269
+1346269
+1346269
+...
+1346269
+1346269
+1346269</code></pre>
+</section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="anatomy-of-min-caml" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Anatomy of Min-Caml</h1></section><section id="main-driver-routine-main.ml" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Main Driver Routine (<code>main.ml</code>)</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> () = <span class="co">(* Main function (caml2html: main_entry) *)</span>
+  <span class="kw">let</span> files = <span class="dt">ref</span> [] <span class="kw">in</span>
+  <span class="dt">Arg</span>.parse
+    [(<span class="st">"-inline"</span>, <span class="dt">Arg</span>.Int(<span class="kw">fun</span> i -&gt; Inline.threshold := i), <span class="st">"maximum size of functions inlined"</span>);
+     (<span class="st">"-iter"</span>, <span class="dt">Arg</span>.Int(<span class="kw">fun</span> i -&gt; limit := i), <span class="st">"maximum number of optimizations iterated"</span>)]
+    (<span class="kw">fun</span> s -&gt; files := !files @ [s])
+    (<span class="st">"Mitou Min-Caml Compiler (C) Eijiro Sumii</span><span class="ch">\n</span><span class="st">"</span> ^
+     <span class="dt">Printf</span>.sprintf <span class="st">"usage: %s [-inline m] [-iter n] ...filenames without </span><span class="ch">\"</span><span class="st">.ml</span><span class="ch">\"</span><span class="st">..."</span> <span class="dt">Sys</span>.argv.(<span class="dv">0</span>));
+  <span class="dt">List</span>.iter
+    (<span class="kw">fun</span> f -&gt; <span class="dt">ignore</span> (file f))
+    !files</code></pre></div>
+</section><section id="main-driver-core" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Main Driver Core</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> file f =
+  <span class="kw">let</span> inchan = <span class="dt">open_in</span> (f ^ <span class="st">".ml"</span>) <span class="kw">and</span> outchan = <span class="dt">open_out</span> (f ^ <span class="st">".s"</span>) <span class="kw">in</span>
+  <span class="kw">try</span>
+    lexbuf outchan (<span class="dt">Lexing</span>.from_channel inchan);
+    <span class="co">(* lexbuf is defined above *)</span>
+    ...
+  <span class="kw">with</span> e -&gt; ...
+
+<span class="kw">let</span> () = <span class="co">(* Main function (caml2html: main_entry) *)</span>
+  <span class="kw">let</span> files = <span class="dt">ref</span> [] <span class="kw">in</span>
+  ...
+  <span class="dt">List</span>.iter
+    (<span class="kw">fun</span> f -&gt; <span class="dt">ignore</span> (file f))
+    !files</code></pre></div>
+</section><section id="compiler-pipeline" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Compiler pipeline</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  Emit.f outchan
+    (RegAlloc.f
+       (Simm.f
+          (Virtual.f
+             (Closure.f
+                (iter !limit
+                   (Alpha.f
+                      (KNormal.f
+                         (Typing.f
+                            (Parser.<span class="dt">exp</span> Lexer.token l)))))))))</code></pre></div>
+</section><section id="tokenization-and-parsing" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Tokenization and Parsing</h2>
+<ul>
+<li><p>Lexer.token: Tokenization</p></li>
+<li><p>Parser.exp: Parsing</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  ...... .......
+    (..........
+       (......
+          (.........
+             (.........
+                (.... !.....
+                   (.......
+                      (.........
+                         (........
+                            (Parser.<span class="dt">exp</span> Lexer.token l)))))))))</code></pre></div>
+</section><section id="name-module-file" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Name / Module / File</h2>
+<dl>
+<dt><code>Lexer.token</code> (<code>token</code> function defined in the <code>Lexer</code> module, which is defined in <code>lexer.ml</code>, which is generated by <code>ocamllex</code> from <code>lexer.mll</code>)</dt>
+<dd><p><code>Lexer.token</code> reads a min-caml program buffer (<em>l</em>) and converts it into a stream of tokens.</p>
+</dd>
+<dt><code>Parser.exp</code> (<code>exp</code> function defined in the <code>Parser</code> module, which is defined in <code>parser.ml</code>, which is generated by <code>ocmalyacc</code> from <code>parser.mly</code>)</dt>
+<dd><p><code>Parser.exp</code> parses a stream of tokens and constructs an abstract syntax tree.</p>
+</dd>
+</dl>
+<p><a href="https://caml.inria.fr/pub/docs/manual-ocaml/moduleexamples.html">More on OCaml module system</a></p>
+</section><section id="construction-of-typed-intermediate-representation" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Construction of Typed Intermediate Representation</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  ...... .......
+    (..........
+       (......
+          (.........
+             (.........
+                (.... !.....
+                   (Alpha.f
+                      (KNormal.f
+                         (Typing.f
+                            ........... ..............))))))))</code></pre></div>
+</section><section id="section" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2></h2>
+<ul>
+<li><p>Typing.f: <code>f</code> function defined in the <code>Typing</code> module, whose definition is found in <code>typing.ml</code></p>
+<p>Type inference and type checking</p></li>
+<li><p>KNormal.f: <code>f</code> function defined in the <code>KNormal</code> module, whose definition is found in <code>kNormal.ml</code></p>
+<p>Conversion of the parse tree into an expression that resembles typed lambda-expression called <em>K-normal form</em></p></li>
+<li><p>Alpha.f: <code>f</code> function defined in the <code>Alpha</code> module, whose definition is found in <code>alpha.ml</code></p>
+<p>Unique renaming</p></li>
+</ul>
+</section><section id="optimization" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Optimization</h2>
+<ul>
+<li>Series of optimization (<code>iter</code>) applied for <code>limit</code> times, 1,000 times by default.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  ...... .......
+    (..........
+       (......
+          (.........
+             (.........
+                (iter !limit
+                   (.......
+                      (.........
+                         (........
+                            (.......... ........... .)))))))))</code></pre></div>
+</section><section id="optimizers" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Optimizers</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> iter n e = <span class="co">(* Iterative optimization *)</span>
+  <span class="kw">if</span> n = <span class="dv">0</span> <span class="kw">then</span> e <span class="kw">else</span>
+  <span class="kw">let</span> e' = Elim.f (ConstFold.f (Inline.f (Assoc.f (Beta.f e)))) <span class="kw">in</span>
+  <span class="kw">if</span> e = e' <span class="kw">then</span> e <span class="kw">else</span>
+  iter (n - <span class="dv">1</span>) e'</code></pre></div>
+<dl>
+<dt>Input</dt>
+<dd><code>e</code>: A program representation in typed-KNF
+</dd>
+<dt>Output</dt>
+<dd><code>e'</code>: More efficient version of e
+</dd>
+</dl>
+<p>Do this <code>n</code> times:</p>
+<ul>
+<li>Apply Beta reduction</li>
+<li>Reduce based on associativity equality</li>
+<li>Apply inline expansion</li>
+<li>Apply constant folding</li>
+<li>Remove unused name</li>
+</ul>
+</section><section id="conversion-to-virtual-machine-instructions" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Conversion to Virtual Machine Instructions</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  ...... .......
+    (..........
+       (......
+          (Virtual.f
+             (Closure.f
+                (.... !.....
+                   (.......
+                      (.........
+                         (........
+                            (.......... ........... .)))))))))</code></pre></div>
+<ul>
+<li><p><code>Closure.f</code>: Closure conversion. Elimination of inner function and first-class uses of functions.</p></li>
+<li><p><code>Virtual.f</code>: Conversion to a virtual machine instruction sequence.</p></li>
+</ul>
+</section><section id="code-generation" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Code Generation</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l = <span class="co">(* Compilation: input=lexical buffer, output=outchan (caml2html: main_lexbuf) *)</span>
+  Emit.f outchan
+    (RegAlloc.f
+       (Simm.f
+          (.........
+             (.........
+                (.... !.....
+                   (.......
+                      (.........
+                         (........
+                            (.......... ........... .)))))))))</code></pre></div>
+<ul>
+<li><p><code>Simm.f</code>: Optimization on short immediate values</p></li>
+<li><p><code>RegAlloc.f</code>: Register allocation. Assignment of hardware register names to virtual register names.</p></li>
+<li><p><code>Emit.f</code>: Assembly code generation. <code>outchan</code> refers to an output port connected to an output assembly file, such as <code>fib.s</code>.</p></li>
+</ul>
+</section><section id="source-code-lines-of-code" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Source Code (lines of code)</h2>
+<dl>
+<dt>Tokenization and Parsing</dt>
+<dd>lexer.mll (100) / parser.mly (173) / syntax.ml (27)
+</dd>
+<dt>Construction of typed, intermediate representation</dt>
+<dd>alpha.ml (46) / kNormal.ml (179) / type.ml (11) / typing.ml (163)
+</dd>
+<dt>Optimization</dt>
+<dd>18 assoc.ml (18) / beta.ml (38) / constFold.ml (50) / elim.ml (32) / inline.ml (32)
+</dd>
+<dt>Conversion to virtual machine instructions</dt>
+<dd>106 closure.ml (106) / virtual.ml (154)
+</dd>
+<dt>Code generation</dt>
+<dd>x86/asm.ml (88) / x86/emit.ml (291) / x86/regAlloc.ml (233) / x86/simm.ml (37) / x86/virtual.ml (154)
+</dd>
+<dt>Others</dt>
+<dd>anchor.ml (22) / id.ml (25) / m.ml (12) / main.ml (45) / s.ml (11)
+</dd>
+<dt>Total (1,893)</dt>
+<dd>
+</dd>
+</dl>
+</section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="more-on-min-caml" class="titleslide slide level1" style="top: 512px; display: none;"><h1>More on Min-Caml</h1></section><section id="min-caml-information" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Min-Caml Information</h2>
+<ul>
+<li><p><a href="https://github.com/esumii/min-caml">Code</a></p></li>
+<li><p><a href="http://esumii.github.io/min-caml/">Japanese Web page</a></p></li>
+<li><p><a href="http://esumii.github.io/min-caml/jpaper.pdf">Japanese academic paper</a></p></li>
+<li><p><a href="http://esumii.github.io/min-caml/index-e.html">English Web page</a></p></li>
+<li><p><a href="http://esumii.github.io/min-caml/paper.pdf">English academic paper</a></p></li>
+<li><p><a href="/fp2017/mincaml/overview.pdf">An Overview</a></p></li>
+</ul>
+</section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/page/">Top</a></h1></section></section>
+    </div>
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  FP: Day 5Min-Caml Compiler Organization
+  Ken Wakita (https://wakita.github.io/fp2017/)
+  Oct. 12, 2017
+</div></div>
+
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/head.min.js"></script>
+  <script src="/fp2017/lib/reveal.js-3.5.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 1024,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/fp2017/lib/reveal.js-3.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    
+
+</body></html>

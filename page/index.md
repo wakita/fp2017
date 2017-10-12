@@ -19,6 +19,8 @@ title: "Functional Programming"
 
 ## Oct. 5: [OCaml tools and standard libraries](/fp2017/slide/04-ocaml3.html) / [Examples](https://github.com/wakita/fp2017/tree/master/fp04/)
 
+## Oct. 12: [Min-caml organization](/fp2017/slide/05-mincaml.html)
+
 <!--
 
 - Oct. 12: Lexer and parser
