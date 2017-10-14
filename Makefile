@@ -16,7 +16,7 @@ clean:
 	rm -f $(STML_TMP) $(STML) $(PTML) $(PDF)
 
 # Markdown -> HTML is achieved in two-stages.
-html: server $(STML) $(PTML)
+html: $(STML) $(PTML)
 
 docs/page/%.html: page/%.md
 	@echo "pandoc: $^ => $@"
@@ -80,9 +80,3 @@ pdf/%.pdf: docs/%.html
 	$(eval url := $(addprefix http://localhost:8080/, $(addsuffix .html, $(slide))))
 
 	decktape $(url) $(pdf)
-
-server:
-	wget --quiet --spider "http://localhost:8080/fp2017/" || (cd $(HOME)/Sites; php -S localhost:8080 &)
-
-shutdown:
-	killall php

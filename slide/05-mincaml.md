@@ -346,13 +346,13 @@ Construction of typed, intermediate representation
 : alpha.ml (46) / kNormal.ml (179) / type.ml (11) / typing.ml (163)
 
 Optimization
-: 18 assoc.ml (18) / beta.ml (38) / constFold.ml (50) / elim.ml (32) / inline.ml (32)
+: assoc.ml (18) / beta.ml (38) / constFold.ml (50) / elim.ml (32) / inline.ml (32)
 
 Conversion to virtual machine instructions
-: 106 closure.ml (106) / virtual.ml (154)
+: closure.ml (106) / x86/virtual.ml (154)
 
 Code generation
-: x86/asm.ml (88) / x86/emit.ml (291) / x86/regAlloc.ml (233) / x86/simm.ml (37) / x86/virtual.ml (154)
+: x86/asm.ml (88) / x86/emit.ml (291) / x86/regAlloc.ml (233) / x86/simm.ml (37)
 
 Others
 : anchor.ml (22) / id.ml (25) / m.ml (12) / main.ml (45) / s.ml (11)
