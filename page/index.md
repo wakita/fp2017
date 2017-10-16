@@ -23,6 +23,8 @@ title: "Functional Programming"
 
 ## Oct. 16: [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html)
 
+    Reading assignment on Unification (see the slide)
+
 <!--
 
 - Oct. 12: Lexer and parser
