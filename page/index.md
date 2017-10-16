@@ -21,6 +21,8 @@ title: "Functional Programming"
 
 ## Oct. 12: [Min-caml organization](/fp2017/slide/05-mincaml.html)
 
+## Oct. 16: [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html)
+
 <!--
 
 - Oct. 12: Lexer and parser
@@ -37,3 +39,18 @@ title: "Functional Programming"
 
 - ...
 -->
+
+# Reference
+
+- MinCaml
+    - [Overview](/fp2017/mincaml/overview.pdf)
+
+    - [Code](https://github.com/esumii/min-caml)
+
+    - [Japanese Web page](http://esumii.github.io/min-caml/ )
+
+    - [Japanese academic paper](http://esumii.github.io/min-caml/jpaper.pdf)
+
+    - [English Web page](http://esumii.github.io/min-caml/index-e.html)
+
+    - [English academic paper](http://esumii.github.io/min-caml/paper.pdf)
