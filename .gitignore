@@ -1,7 +1,11 @@
 tmp/
 future/
 past/
-quiz/
+/docs/quiz/*.html
+/quiz/*.md
+
+# open quiz
+!1019-unification.*
 
 *.annot
 *.cmo
