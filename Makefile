@@ -12,11 +12,14 @@ PDF      := $(addprefix pdf/,        $(addsuffix .pdf,  $(SLIDES)))
 PAGE     := $(basename $(notdir $(wildcard page/*.md)))
 PTML     := $(addprefix docs/page/, $(addsuffix .html, $(PAGE)))
 
+QUIZ     := $(basename $(notdir $(wildcard quiz/*.md)))
+QTML     := $(addprefix docs/quiz/, $(addsuffix .html, $(QUIZ)))
+
 clean:
 	rm -f $(STML_TMP) $(STML) $(PTML) $(PDF)
 
 # Markdown -> HTML is achieved in two-stages.
-html: $(STML) $(PTML)
+html: $(STML) $(PTML) $(QTML)
 
 docs/page/%.html: page/%.md
 	@echo "pandoc: $^ => $@"
@@ -27,7 +30,17 @@ docs/page/%.html: page/%.md
           --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
 	  --css=/fp2017/lib/kw.css \
 	  --css=/fp2017/lib/kw-page.css \
-	  -V width=1280 -V height=1024 \
+	  --mathjax \
+	  --smart
+
+docs/quiz/%.html: quiz/%.md
+	@echo "pandoc: $^ => $@"
+	@pandoc $^ \
+	  --to html \
+	  --standalone \
+	  --output $@ \
+	  --css=/fp2017/lib/kw.css \
+	  --css=/fp2017/lib/kw-quiz.css \
 	  --mathjax \
 	  --smart
 
