@@ -18,7 +18,7 @@ li.long {
   h1:first-of-type {
     page-break-before: avoid;
   }
-  a, code, em, pre {
+  a, code, em, pre, .math {
     color: #000;
   }
   em {

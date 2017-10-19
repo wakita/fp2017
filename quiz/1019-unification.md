@@ -6,7 +6,7 @@ title: "Quiz (October 19)<br/>ID:<br/>Name:"
 
 # Definitions
 
-Explanations in this section are picked up from your reading assignment on "Unification (Computer Science)" page of Wikipedia.  They are provided for your convenience.  You do not have to read them the questions of the next section.
+Explanations in this section are picked up from your reading assignment on "Unification (Computer Science)" page of Wikipedia.  They are provided for your convenience.  You do not have to read them to solve the questions that appear in the next section.
 
 ## First-order terms
 

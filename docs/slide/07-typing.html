@@ -1,0 +1,330 @@
+<!DOCTYPE html><html class=" js no-mobile desktop no-ie safari safari538 fp2017-section tmp-section w-400 gt-240 gt-320 lt-480 lt-640 lt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920 no-portrait landscape gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions touch no-retina no-fontface domloaded" id="07-typing-page"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ken Wakita (https://wakita.github.io/fp2017/)">
+  <meta name="dcterms.date" content="2017-10-19">
+  <title>FP: Day 7 Typing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+  </style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="/fp2017/lib/kw.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/fp2017/lib/reveal.js-3.5.0/css/print/pdf.css' : '/fp2017/lib/reveal.js-3.5.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><link rel="stylesheet" type="text/css" href="/fp2017/lib/reveal.js-3.5.0/css/print/paper.css">
+  <!--[if lt IE 9]>
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML-full" id=""></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js"></script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/jax/output/CommonHTML/fonts/TeX/fontdata.js?V=2.7.1"></script><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;"><div id="MathJax_Message" style="">Loading [MathJax]/jax/output/CommonHTML/fonts/TeX/fontdata.js</div>
+  <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
+    <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
+
+<section style="top: 229px; display: block;" class="present">
+  <h1 class="title">FP: Day 7<br>Typing</h1>
+  <p class="author">Ken Wakita (<a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a>)</p>
+  <p class="date">Oct. 19, 2017</p>
+</section>
+
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="types" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Types</h1></section><section id="mincaml-types" class="slide level2 future" aria-hidden="true" style="top: 379.5px; display: block;">
+<h2>MinCaml Types</h2>
+<figure>
+<img src="/fp2017/mincaml/overview/types.png" alt="MinCaml Types"><figcaption>MinCaml Types</figcaption>
+</figure>
+</section><section id="mincaml-types-as-1st-order-terms" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>MinCaml Types as 1st-order terms</h2>
+<figure>
+<img src="/fp2017/mincaml/overview/types.png" alt="MinCaml Types"><figcaption>MinCaml Types</figcaption>
+</figure>
+<p><span class="math display"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math MJXp-display" id="MJXp-Span-1"><span class="MJXp-mtable" id="MJXp-Span-2"><span><span class="MJXp-mtr" id="MJXp-Span-3" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-4" style="text-align: right;"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-5">τ</span></span><span class="MJXp-mtd" id="MJXp-Span-6" style="padding-left: 0em; text-align: left;"><span class="MJXp-mi" id="MJXp-Span-7"></span><span class="MJXp-mo" id="MJXp-Span-8" style="margin-left: 0.111em; margin-right: 0.167em;">::=</span></span></span><span class="MJXp-mtr" id="MJXp-Span-9" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-10" style="padding-top: 0.3em; text-align: right;"><span class="MJXp-mrow" id="MJXp-Span-11"><span class="MJXp-mo" id="MJXp-Span-12" style="margin-left: 0.167em; margin-right: 0.167em;">|</span></span></span><span class="MJXp-mtd" id="MJXp-Span-13" style="padding-left: 0em; padding-top: 0.3em; text-align: left;"><span class="MJXp-mspace" id="MJXp-Span-14" style="width: 0.167em; height: 0em;"></span><span class="MJXp-mtext" id="MJXp-Span-15">bool | int | float</span></span></span><span class="MJXp-mtr" id="MJXp-Span-16" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-17" style="padding-top: 0.3em; text-align: right;"><span class="MJXp-mrow" id="MJXp-Span-18"><span class="MJXp-mo" id="MJXp-Span-19" style="margin-left: 0.167em; margin-right: 0.167em;">|</span></span></span><span class="MJXp-mtd" id="MJXp-Span-20" style="padding-left: 0em; padding-top: 0.3em; text-align: left;"><span class="MJXp-mspace" id="MJXp-Span-21" style="width: 0.167em; height: 0em;"></span><span class="MJXp-mrow" id="MJXp-Span-22"><span class="MJXp-mi" id="MJXp-Span-23">F</span><span class="MJXp-mi" id="MJXp-Span-24">u</span><span class="MJXp-mi" id="MJXp-Span-25">n</span><span class="MJXp-mi" id="MJXp-Span-26">c</span><span class="MJXp-mi" id="MJXp-Span-27">t</span><span class="MJXp-mi" id="MJXp-Span-28">i</span><span class="MJXp-mi" id="MJXp-Span-29">o</span><span class="MJXp-mi" id="MJXp-Span-30">n</span><span class="MJXp-mi" id="MJXp-Span-31">a</span><span class="MJXp-mi" id="MJXp-Span-32">l</span><span class="MJXp-mi" id="MJXp-Span-33">T</span><span class="MJXp-mi" id="MJXp-Span-34">y</span><span class="MJXp-mi" id="MJXp-Span-35">p</span><span class="MJXp-mi" id="MJXp-Span-36">e</span></span><span class="MJXp-mo" id="MJXp-Span-37" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-msubsup" id="MJXp-Span-38"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-39" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-40" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-41" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-42" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-mo" id="MJXp-Span-43" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-msubsup" id="MJXp-Span-44"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-45" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-46" style="vertical-align: -0.4em;">n</span></span><span class="MJXp-mo" id="MJXp-Span-47" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-48">τ</span><span class="MJXp-mo" id="MJXp-Span-49" style="margin-left: 0em; margin-right: 0em;">)</span></span></span><span class="MJXp-mtr" id="MJXp-Span-50" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-51" style="padding-top: 0.3em; text-align: right;"><span class="MJXp-mrow" id="MJXp-Span-52"><span class="MJXp-mo" id="MJXp-Span-53" style="margin-left: 0.167em; margin-right: 0.167em;">|</span></span></span><span class="MJXp-mtd" id="MJXp-Span-54" style="padding-left: 0em; padding-top: 0.3em; text-align: left;"><span class="MJXp-mspace" id="MJXp-Span-55" style="width: 0.167em; height: 0em;"></span><span class="MJXp-mrow" id="MJXp-Span-56"><span class="MJXp-mi" id="MJXp-Span-57">T</span><span class="MJXp-mi" id="MJXp-Span-58">u</span><span class="MJXp-mi" id="MJXp-Span-59">p</span><span class="MJXp-mi" id="MJXp-Span-60">l</span><span class="MJXp-mi" id="MJXp-Span-61">e</span><span class="MJXp-mi" id="MJXp-Span-62">T</span><span class="MJXp-mi" id="MJXp-Span-63">y</span><span class="MJXp-mi" id="MJXp-Span-64">p</span><span class="MJXp-mi" id="MJXp-Span-65">e</span></span><span class="MJXp-mo" id="MJXp-Span-66" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-msubsup" id="MJXp-Span-67"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-68" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-69" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-70" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-71" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-mo" id="MJXp-Span-72" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-msubsup" id="MJXp-Span-73"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-74" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-75" style="vertical-align: -0.4em;">n</span></span><span class="MJXp-mo" id="MJXp-Span-76" style="margin-left: 0em; margin-right: 0em;">)</span></span></span><span class="MJXp-mtr" id="MJXp-Span-77" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-78" style="padding-top: 0.3em; text-align: right;"><span class="MJXp-mrow" id="MJXp-Span-79"><span class="MJXp-mo" id="MJXp-Span-80" style="margin-left: 0.167em; margin-right: 0.167em;">|</span></span></span><span class="MJXp-mtd" id="MJXp-Span-81" style="padding-left: 0em; padding-top: 0.3em; text-align: left;"><span class="MJXp-mspace" id="MJXp-Span-82" style="width: 0.167em; height: 0em;"></span><span class="MJXp-mrow" id="MJXp-Span-83"><span class="MJXp-mi" id="MJXp-Span-84">A</span><span class="MJXp-mi" id="MJXp-Span-85">r</span><span class="MJXp-mi" id="MJXp-Span-86">r</span><span class="MJXp-mi" id="MJXp-Span-87">a</span><span class="MJXp-mi" id="MJXp-Span-88">y</span><span class="MJXp-mi" id="MJXp-Span-89">T</span><span class="MJXp-mi" id="MJXp-Span-90">y</span><span class="MJXp-mi" id="MJXp-Span-91">p</span><span class="MJXp-mi" id="MJXp-Span-92">e</span></span><span class="MJXp-mo" id="MJXp-Span-93" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-94">τ</span><span class="MJXp-mo" id="MJXp-Span-95" style="margin-left: 0em; margin-right: 0em;">)</span></span></span><span class="MJXp-mtr" id="MJXp-Span-96" style="vertical-align: baseline;"><span class="MJXp-mtd" id="MJXp-Span-97" style="padding-top: 0.3em; text-align: right;"><span class="MJXp-mrow" id="MJXp-Span-98"><span class="MJXp-mo" id="MJXp-Span-99" style="margin-left: 0.167em; margin-right: 0.167em;">|</span></span></span><span class="MJXp-mtd" id="MJXp-Span-100" style="padding-left: 0em; padding-top: 0.3em; text-align: left;"><span class="MJXp-mspace" id="MJXp-Span-101" style="width: 0.167em; height: 0em;"></span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-102">α</span></span></span></span></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-1">\begin{align}
+\tau & ::= \\
+   | & \, \text {bool | int | float} \\
+   | & \, \mathrm {FunctionalType}(\tau_1, \ldots, \tau_n, \tau) \\
+   | & \, \mathrm {TupleType}(\tau_1, \ldots, \tau_n) \\
+   | & \, \mathrm {ArrayType}(\tau) \\
+   | & \, \alpha
+\end{align}</script></span></p>
+</section><section id="typing-rules-for-let" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Typing Rules for <code>let</code></h2>
+<figure>
+<img src="/fp2017/mincaml/overview/typing-let.png" alt="Typing Rules for let"><figcaption>Typing Rules for <code>let</code></figcaption>
+</figure>
+<dl>
+<dt>Assumptions</dt>
+<dd><ol type="1">
+<li><p>The type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-103"><span class="MJXp-msubsup" id="MJXp-Span-104"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-105" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-106" style="vertical-align: -0.4em;">1</span></span></span></span><script type="math/tex" id="MathJax-Element-2">e_1</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-107"><span class="MJXp-msubsup" id="MJXp-Span-108"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-109" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-110" style="vertical-align: -0.4em;">1</span></span></span></span><script type="math/tex" id="MathJax-Element-3">\tau_1</script></span></p></li>
+<li><p>Under a typing environment, where the type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-111"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-112">x</span></span></span><script type="math/tex" id="MathJax-Element-4">x</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-113"><span class="MJXp-msubsup" id="MJXp-Span-114"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-115" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-116" style="vertical-align: -0.4em;">1</span></span></span></span><script type="math/tex" id="MathJax-Element-5">\tau_1</script></span>, the type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-117"><span class="MJXp-msubsup" id="MJXp-Span-118"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-119" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-120" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-6">e_2</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-121"><span class="MJXp-msubsup" id="MJXp-Span-122"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-123" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-124" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-7">\tau_2</script></span>.</p></li>
+</ol>
+</dd>
+<dt>Conclusion</dt>
+<dd>The type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-125"><span class="MJXp-mrow" id="MJXp-Span-126"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-127">let&nbsp;</span></span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-128">x</span><span class="MJXp-mo" id="MJXp-Span-129" style="margin-left: 0.333em; margin-right: 0.333em;">=</span><span class="MJXp-msubsup" id="MJXp-Span-130"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-131" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-132" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mrow" id="MJXp-Span-133"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-134">&nbsp;in&nbsp;</span></span><span class="MJXp-msubsup" id="MJXp-Span-135"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-136" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-137" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-8">\texttt {let } x = e_1 \texttt { in } e_2</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-138"><span class="MJXp-msubsup" id="MJXp-Span-139"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-140" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-141" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-9">\tau_2</script></span>.
+</dd>
+<dt>Semtanics of <code>let</code></dt>
+<dd>The <code>let</code> form binds a name locally. It introduces a varible <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-142"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-143">x</span></span></span><script type="math/tex" id="MathJax-Element-10">x</script></span> whose value is the evaluation results of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-144"><span class="MJXp-msubsup" id="MJXp-Span-145"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-146" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-147" style="vertical-align: -0.4em;">1</span></span></span></span><script type="math/tex" id="MathJax-Element-11">e_1</script></span>. The scope of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-148"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-149">x</span></span></span><script type="math/tex" id="MathJax-Element-12">x</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-150"><span class="MJXp-msubsup" id="MJXp-Span-151"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-152" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-153" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-13">e_2</script></span> (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-154"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-155">x</span></span></span><script type="math/tex" id="MathJax-Element-14">x</script></span> is visible inside <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-156"><span class="MJXp-msubsup" id="MJXp-Span-157"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-158" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-159" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-15">e_2</script></span>).
+</dd>
+</dl>
+</section><section id="typing-let-x-1-in-x-2" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Typing <code>let x = 1 in x * 2</code></h2>
+<ol type="1">
+<li><p><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-160"><span class="MJXp-mi" id="MJXp-Span-161">Γ</span><span class="MJXp-mo" id="MJXp-Span-162" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-163">x</span><span class="MJXp-mo" id="MJXp-Span-164" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-165">int</span><span class="MJXp-mo" id="MJXp-Span-166" style="margin-left: 0.333em; margin-right: 0.333em;">⊢</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-167">x</span><span class="MJXp-mo" id="MJXp-Span-168" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-169">int</span></span></span><script type="math/tex" id="MathJax-Element-16">\Gamma, x:\text {int} \vdash x:\text {int}</script></span> because <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-170"><span class="MJXp-mi" id="MJXp-Span-171">Γ</span><span class="MJXp-mo" id="MJXp-Span-172" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-173">x</span><span class="MJXp-mo" id="MJXp-Span-174" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-175">int</span><span class="MJXp-mo" id="MJXp-Span-176" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-177">x</span><span class="MJXp-mo" id="MJXp-Span-178" style="margin-left: 0em; margin-right: 0em;">)</span><span class="MJXp-mo" id="MJXp-Span-179" style="margin-left: 0.333em; margin-right: 0.333em;">=</span><span class="MJXp-mtext" id="MJXp-Span-180">int</span></span></span><script type="math/tex" id="MathJax-Element-17">\Gamma, x: \text {int}(x) = \text {int}</script></span>.</p></li>
+<li><p><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-181"><span class="MJXp-mi" id="MJXp-Span-182">Γ</span><span class="MJXp-mo" id="MJXp-Span-183" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-184">x</span><span class="MJXp-mo" id="MJXp-Span-185" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-186">int</span><span class="MJXp-mo" id="MJXp-Span-187" style="margin-left: 0.333em; margin-right: 0.333em;">⊢</span><span class="MJXp-mn" id="MJXp-Span-188">2</span><span class="MJXp-mo" id="MJXp-Span-189" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-190">int</span></span></span><script type="math/tex" id="MathJax-Element-18">\Gamma, x:\text {int} \vdash 2: \text {int}</script></span> because 2 is an integer constant.</p></li>
+<li><p><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-191"><span class="MJXp-mi" id="MJXp-Span-192">Γ</span><span class="MJXp-mo" id="MJXp-Span-193" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-194">x</span><span class="MJXp-mo" id="MJXp-Span-195" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-196">int</span><span class="MJXp-mo" id="MJXp-Span-197" style="margin-left: 0.333em; margin-right: 0.333em;">⊢</span><span class="MJXp-mrow" id="MJXp-Span-198"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-199">x * 2</span></span><span class="MJXp-mo" id="MJXp-Span-200" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-201">int</span></span></span><script type="math/tex" id="MathJax-Element-19">\Gamma, x:\text {int} \vdash \texttt {x * 2}: \text {int}</script></span> because <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-202"><span class="MJXp-mrow" id="MJXp-Span-203"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-204">*</span></span><span class="MJXp-mo" id="MJXp-Span-205" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-206">int</span><span class="MJXp-mo" id="MJXp-Span-207" style="margin-left: 0.267em; margin-right: 0.267em;">×</span><span class="MJXp-mtext" id="MJXp-Span-208">int</span><span class="MJXp-mo" id="MJXp-Span-209" style="margin-left: 0.333em; margin-right: 0.333em;">→</span><span class="MJXp-mtext" id="MJXp-Span-210">int</span></span></span><script type="math/tex" id="MathJax-Element-20">\texttt *: \text {int} \times \text {int} \rightarrow \text {int}</script></span>.</p></li>
+<li><p><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-211"><span class="MJXp-mi" id="MJXp-Span-212">Γ</span><span class="MJXp-mo" id="MJXp-Span-213" style="margin-left: 0.333em; margin-right: 0.333em;">⊢</span><span class="MJXp-mn" id="MJXp-Span-214">1</span><span class="MJXp-mo" id="MJXp-Span-215" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-216">int</span></span></span><script type="math/tex" id="MathJax-Element-21">\Gamma \vdash 1:\text {int}</script></span> because 1 is an integer constant.</p></li>
+<li><p><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-217"><span class="MJXp-mi" id="MJXp-Span-218">Γ</span><span class="MJXp-mo" id="MJXp-Span-219" style="margin-left: 0.333em; margin-right: 0.333em;">⊢</span><span class="MJXp-mrow" id="MJXp-Span-220"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-221">let x = 1 in x * 2</span></span><span class="MJXp-mo" id="MJXp-Span-222" style="margin-left: 0.111em; margin-right: 0.167em;">:</span><span class="MJXp-mtext" id="MJXp-Span-223">int</span></span></span><script type="math/tex" id="MathJax-Element-22">\Gamma \vdash \texttt {let x = 1 in x * 2}: \text {int}</script></span>, from the last two statements and the typing rule for <em>let</em>.</p></li>
+</ol>
+</section><section id="typing-rules-for-let-rec" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Typing Rules for <code>let rec</code></h2>
+<figure>
+<img src="/fp2017/mincaml/overview/typing-letrec.png" alt="Typing Rules for let rec"><figcaption>Typing Rules for <code>let rec</code></figcaption>
+</figure>
+<dl>
+<dt>Assumptions</dt>
+<dd><ol type="1">
+<li><p>Under a typing environment where <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-224"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-225">x</span></span></span><script type="math/tex" id="MathJax-Element-23">x</script></span> is a function whose type is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-226"><span class="MJXp-msubsup" id="MJXp-Span-227"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-228" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-229" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-230" style="margin-left: 0.333em; margin-right: 0.333em;">→</span><span class="MJXp-mo" id="MJXp-Span-231" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-232"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-233" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-234" style="vertical-align: -0.4em;">n</span></span><span class="MJXp-mo" id="MJXp-Span-235" style="margin-left: 0.333em; margin-right: 0.333em;">→</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-236">τ</span></span></span><script type="math/tex" id="MathJax-Element-24">\tau_1 \rightarrow \ldots \tau_n \rightarrow \tau</script></span> and the types of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-237"><span class="MJXp-msubsup" id="MJXp-Span-238"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-239" style="margin-right: 0.05em;">y</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-240" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-241" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-242" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-mo" id="MJXp-Span-243" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-msubsup" id="MJXp-Span-244"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-245" style="margin-right: 0.05em;">y</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-246" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-25">y_1, \ldots, y_n</script></span> are <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-247"><span class="MJXp-msubsup" id="MJXp-Span-248"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-249" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-250" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-251" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-252" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-mo" id="MJXp-Span-253" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-msubsup" id="MJXp-Span-254"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-255" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-256" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-26">\tau_1, \ldots, \tau_n</script></span>, respectively, the type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-257"><span class="MJXp-msubsup" id="MJXp-Span-258"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-259" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-260" style="vertical-align: -0.4em;">1</span></span></span></span><script type="math/tex" id="MathJax-Element-27">e_1</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-261"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-262">τ</span></span></span><script type="math/tex" id="MathJax-Element-28">\tau</script></span>. (When the types of virtual and real arguments match the function’s result type and body’s type should be the same.)</p></li>
+<li><p>Under a typing environment where <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-263"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-264">x</span></span></span><script type="math/tex" id="MathJax-Element-29">x</script></span> is a function whose type is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-265"><span class="MJXp-msubsup" id="MJXp-Span-266"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-267" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-268" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-269" style="margin-left: 0.333em; margin-right: 0.333em;">→</span><span class="MJXp-mo" id="MJXp-Span-270" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-271"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-272" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-273" style="vertical-align: -0.4em;">n</span></span><span class="MJXp-mo" id="MJXp-Span-274" style="margin-left: 0.333em; margin-right: 0.333em;">→</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-275">τ</span></span></span><script type="math/tex" id="MathJax-Element-30">\tau_1 \rightarrow \ldots \tau_n \rightarrow \tau</script></span>, the type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-276"><span class="MJXp-msubsup" id="MJXp-Span-277"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-278" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-279" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-31">e_2</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-280"><span class="MJXp-msup" id="MJXp-Span-281"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-282" style="margin-right: 0.05em;">τ</span><span class="MJXp-mo MJXp-script" id="MJXp-Span-283" style="vertical-align: 0.5em;">′</span></span></span></span><script type="math/tex" id="MathJax-Element-32">\tau'</script></span>.</p></li>
+</ol>
+</dd>
+<dt>Conclusion</dt>
+<dd>The type of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-284"><span class="MJXp-mrow" id="MJXp-Span-285"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-286">let rec&nbsp;</span></span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-287">x</span><span class="MJXp-mtext" id="MJXp-Span-288">&nbsp;</span><span class="MJXp-msubsup" id="MJXp-Span-289"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-290" style="margin-right: 0.05em;">y</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-291" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-292" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-293"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-294" style="margin-right: 0.05em;">y</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-295" style="vertical-align: -0.4em;">n</span></span><span class="MJXp-mo" id="MJXp-Span-296" style="margin-left: 0.333em; margin-right: 0.333em;">=</span><span class="MJXp-msubsup" id="MJXp-Span-297"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-298" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-299" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mrow" id="MJXp-Span-300"><span class="MJXp-mtext MJXp-mono" id="MJXp-Span-301">&nbsp;in&nbsp;</span></span><span class="MJXp-msubsup" id="MJXp-Span-302"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-303" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-304" style="vertical-align: -0.4em;">2</span></span></span></span><script type="math/tex" id="MathJax-Element-33">\texttt {let rec } x\ y_1 \ldots y_n = e_1 \texttt { in } e_2</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-305"><span class="MJXp-msup" id="MJXp-Span-306"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-307" style="margin-right: 0.05em;">τ</span><span class="MJXp-mo MJXp-script" id="MJXp-Span-308" style="vertical-align: 0.5em;">′</span></span></span></span><script type="math/tex" id="MathJax-Element-34">\tau'</script></span>.
+</dd>
+</dl>
+</section><section id="typing-rule-for-function-application" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Typing Rule for Function Application</h2>
+<figure>
+<img src="/fp2017/mincaml/overview/typing-letrec.png" alt="Typing Rules for let rec"><figcaption>Typing Rules for <code>let rec</code></figcaption>
+</figure>
+<dl>
+<dt>Assumptions</dt>
+<dd><ol type="1">
+<li><p>A function <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-309"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-310">e</span></span></span><script type="math/tex" id="MathJax-Element-35">e</script></span> takes <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-311"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-312">n</span></span></span><script type="math/tex" id="MathJax-Element-36">n</script></span> arguments and their types are <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-313"><span class="MJXp-msubsup" id="MJXp-Span-314"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-315" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-316" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-317" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-318" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-319"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-320" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-321" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-37">\tau_1, \ldots \tau_n</script></span>.</p></li>
+<li><p>The types of <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-322"><span class="MJXp-msubsup" id="MJXp-Span-323"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-324" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-325" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-326" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-327" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-328"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-329" style="margin-right: 0.05em;">e</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-330" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-38">e_1, \ldots e_n</script></span> are <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-331"><span class="MJXp-msubsup" id="MJXp-Span-332"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-333" style="margin-right: 0.05em;">τ</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-334" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-335" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mo" id="MJXp-Span-336" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-mo" id="MJXp-Span-337" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-msubsup" id="MJXp-Span-338"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-339" style="margin-right: 0.05em;">τ</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-340" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-39">\tau_1, \ldots, \tau_n</script></span>, respectively.</p></li>
+</ol>
+<p>These two assumption demand that the types of the formal argument and the actual arguments match.</p>
+</dd>
+<dt>Conclusion</dt>
+<dd>The result type of a function application <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-341"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-342">e</span><span class="MJXp-mtext" id="MJXp-Span-343">&nbsp;</span><span class="MJXp-msubsup" id="MJXp-Span-344"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-345" style="margin-right: 0.05em;">e</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-346" style="vertical-align: -0.4em;">1</span></span><span class="MJXp-mo" id="MJXp-Span-347" style="margin-left: 0em; margin-right: 0em;">…</span><span class="MJXp-msubsup" id="MJXp-Span-348"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-349" style="margin-right: 0.05em;">e</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-350" style="vertical-align: -0.4em;">n</span></span></span></span><script type="math/tex" id="MathJax-Element-40">e\ e_1 \ldots e_n</script></span> is <span class="math inline"><span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-351"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-352">τ</span></span></span><script type="math/tex" id="MathJax-Element-41">\tau</script></span>.
+</dd>
+</dl>
+</section></section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="implementation-of-typing" class="titleslide slide level1" style="top: 301px; display: block;"><h1>Implementation of Typing</h1></section><section id="typing.deref_..." class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2><code>Typing.deref_...</code></h2>
+<p>A series of function that replaces occurrences of type variable by its contents</p>
+<dl>
+<dt><code>Typing.deref_typ</code></dt>
+<dd><p>Dereferencing of type variables for <code>Type.t</code>. The essencial code is:</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> <span class="kw">rec</span> deref_typ = <span class="kw">function</span>
+  ...
+
+  | Type.Var({ contents = <span class="dt">Some</span>(t) } <span class="kw">as</span> r) -&gt;
+  <span class="kw">let</span> t' = deref_typ t <span class="kw">in</span>
+  r := <span class="dt">Some</span>(t');
+  t'
+
+  ...</code></pre></div>
+<p>Other code recursively applies <code>deref_*</code> to the subcomponents.</p>
+</dd>
+</dl>
+</section><section id="occur-r-t" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2><code>occur r t</code></h2>
+<p>Checks if a type varible <code>r</code> occurs in a type expression <code>t</code>.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml">  | Type.Var(r2) <span class="kw">when</span> r1 == r2        -&gt; <span class="kw">true</span>
+  | Type.Var({ contents = <span class="dt">None</span> })     -&gt; <span class="kw">false</span>
+  | Type.Var({ contents = <span class="dt">Some</span>(t2) }) -&gt; occur r1 t2</code></pre></div>
+</section><section id="unify-t1-t2" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2><code>unify t1 t2</code></h2>
+<ul>
+<li><p><code>unify t1 t2</code> attempts unification on type variables to <code>t1</code> and <code>t2</code>. Instead of computing substitution, type variables are replaced by substitution. This is one of rare cases of using side effects throughout implementation of the MinCaml compiler.</p>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml">| Type.Var({ contents = <span class="dt">None</span> } <span class="kw">as</span> r1), _ -&gt; <span class="co">(* t1 is an undefined type variable *)</span>
+  <span class="kw">if</span> occur r1 t2 <span class="kw">then</span> <span class="dt">raise</span> (Unify(t1, t2));
+  r1 := <span class="dt">Some</span>(t2)
+| _, Type.Var({ contents = <span class="dt">None</span> } <span class="kw">as</span> r2) -&gt; <span class="co">(* t2 is an undefined type variable *)</span>
+  <span class="kw">if</span> occur r2 t1 <span class="kw">then</span> <span class="dt">raise</span> (Unify(t1, t2));
+  r2 := <span class="dt">Some</span>(t1)</code></pre></div></li>
+<li><p>The structure of the <code>unify</code> function reflects the typing structure, namely <code>Type.t</code>.</p></li>
+<li><p>If it fails to unify <code>t1</code> and <code>t2</code>, it raises an exception: <code>raise (Unify(t1, t2))</code>.</p></li>
+</ul>
+</section><section id="g-env-e" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2><code>g env e</code></h2>
+<p><code>g env e</code> examine the structure of <code>e</code>, identifies the typing rule related with that structure, then attempts to unify the assumptions and conclusions of the typing rule with the corresponding structure of <code>e</code>’s type.</p>
+</section></section>
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/page/">Top</a></h1></section></section>
+    </div>
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  FP: Day 7Typing
+  Ken Wakita (https://wakita.github.io/fp2017/)
+  Oct. 19, 2017
+</div></div>
+
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/head.min.js"></script>
+  <script src="/fp2017/lib/reveal.js-3.5.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 1024,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/fp2017/lib/reveal.js-3.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    
+
+</body></html>
