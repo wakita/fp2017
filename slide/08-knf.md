@@ -37,6 +37,26 @@ let lexbuf outchan l =
                             (.......... ........... .)))))))))
 ~~~
 
+## Additions to `.ocamlinit`
+
+~~~ {.ocaml}
+let compose f g x = (* Function composition *)
+  f (g x)
+
+let fib_p   = "let rec fib n = if n < 2 then 1 else fib (n - 1) + fib (n - 1) in print(fib 5)"
+
+let knf_p   = "print(1 + 2 + 3)"
+let if_p    = "print(if 1 > 0 then 1 else 0)"
+
+let alpha_p = "print(let x = 1 in let x = 2 in x)"
+
+let lex     = Lexing.from_string
+let ast     = compose (Parser.exp Lexer.token) Lexing.from_string
+let typing  = compose Typing.f ast
+let knf     = compose KNormal.f typing
+let alpha   = compose Alpha.f knf
+~~~
+
 # K-Normalization
 
 ## The Syntax of KNF
