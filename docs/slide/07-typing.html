@@ -170,7 +170,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="date">Oct. 19, 2017</p>
 </section>
 
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="types" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Types</h1></section><section id="mincaml-types" class="slide level2 future" aria-hidden="true" style="top: 379.5px; display: block;">
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="overview" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Overview</h1></section><section id="compiler-pipeline" class="slide level2 future" aria-hidden="true" style="top: 264px; display: block;">
+<h2>Compiler Pipeline</h2>
+<div class="sourceCode"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="kw">let</span> lexbuf outchan l =
+  ...... .......
+    (..........
+       (......
+          (.........
+             (.........
+                (.... !.....
+                   (Alpha.f
+                      (KNormal.f
+                         (........
+                            (.......... ........... .)))))))))</code></pre></div>
+</section></section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="types" class="titleslide slide level1" style="top: 391.5px; display: block;"><h1>Types</h1></section><section id="mincaml-types" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>MinCaml Types</h2>
 <figure>
 <img src="/fp2017/mincaml/overview/types.png" alt="MinCaml Types"><figcaption>MinCaml Types</figcaption>
@@ -250,7 +264,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 </dl>
 </section></section>
-<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="implementation-of-typing" class="titleslide slide level1" style="top: 301px; display: block;"><h1>Implementation of Typing</h1></section><section id="typing.deref_..." class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="implementation-of-typing" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Implementation of Typing</h1></section><section id="typing.deref_..." class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2><code>Typing.deref_...</code></h2>
 <p>A series of function that replaces occurrences of type variable by its contents</p>
 <dl>
@@ -293,7 +307,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section></section>
 <section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="titleslide slide level1" style="top: 512px; display: none;"><h1>Back to <a href="/fp2017/page/">Top</a></h1></section></section>
     </div>
-  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background titleslide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background titleslide slide level1 present" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
   FP: Day 7Typing
   Ken Wakita (https://wakita.github.io/fp2017/)
   Oct. 19, 2017

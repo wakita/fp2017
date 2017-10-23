@@ -3,6 +3,24 @@ title: "FP: Day 7<br/>Typing"
 date: "Oct. 19, 2017"
 ---
 
+# Overview
+
+## Compiler Pipeline
+
+~~~ {.ocaml}
+let lexbuf outchan l =
+  ...... .......
+    (..........
+       (......
+          (.........
+             (.........
+                (.... !.....
+                   (Alpha.f
+                      (KNormal.f
+                         (........
+                            (.......... ........... .)))))))))
+~~~
+
 # Types
 
 ## MinCaml Types
