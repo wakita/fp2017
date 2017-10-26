@@ -7,27 +7,30 @@ title: "Functional Programming"
 
 - [Course outline](/fp2017/slide/00-outline.html) / [Syllabus](/fp2017/pdf/syllabus.pdf)
 
-## Sep. 25: [Overview](/fp2017/slide/01-overview.html)
+## Day 1 (Sep. 25): [Overview](/fp2017/slide/01-overview.html)
 
 - [Assignments](/fp2017/slide/01-overview.html#assignments) (Reading assignment / Install OCaml on your laptop)
 
-## Sep. 28: [Introduction to functional programming in OCaml (1)](/fp2017/slide/02-ocaml1.html)
+## Day 2 (Sep. 28): [Introduction to functional programming in OCaml (1)](/fp2017/slide/02-ocaml1.html)
 
 - [Coding Assignment](/fp2017/page/assignment1.html) --- A few pages added on Sep. 30.  They reflect some of the questions raised during the class.
 
-## Oct. 2: [Introduction to functional programming in OCaml (2)](/fp2017/slide/03-ocaml2.html)
+## Day 3 (Oct. 2): [Introduction to functional programming in OCaml (2)](/fp2017/slide/03-ocaml2.html)
 
-## Oct. 5: [OCaml tools and standard libraries](/fp2017/slide/04-ocaml3.html) / [Examples](https://github.com/wakita/fp2017/tree/master/fp04/)
+## Day 4 (Oct. 5): [OCaml tools and standard libraries](/fp2017/slide/04-ocaml3.html) / [Examples](https://github.com/wakita/fp2017/tree/master/fp04/)
 
-## Oct. 12: [Min-caml organization](/fp2017/slide/05-mincaml.html)
+## Day 5 (Oct. 12): [Min-caml organization](/fp2017/slide/05-mincaml.html)
 
-## Oct. 16: [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html)
-
-## Oct. 19: [Typing](/fp2017/slide/07-typing.html), [A sample quiz](/fp2017/quiz/1019-unification.html)
-
-## Oct. 23: [K-Normalization and $\alpha$ conversion](/fp2017/slide/08-knf.html), [Quiz](/fp2017/quiz/1023-unification.html)
+## Day 6 (Oct. 16): [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html)
 
 Reading assignment on Unification (see the slide)
+
+## Day 7 (Oct. 19): [Typing](/fp2017/slide/07-typing.html), [A sample quiz](/fp2017/quiz/1019-unification.html)
+
+## Day 8 (Oct. 23): [K-Normalization and $\alpha$ conversion](/fp2017/slide/08-knf.html), [Quiz](/fp2017/quiz/1023-unification.html)
+
+## Day 9 (Oct. 25): [Optimization](/fp2017/slide/09-optimize.html), Checkout the `ocamlinit.ml` file.
+
 
 <!--
 
