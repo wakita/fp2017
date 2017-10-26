@@ -29,7 +29,7 @@ Reading assignment on Unification (see the slide)
 
 ## Day 8 (Oct. 23): [K-Normalization and $\alpha$ conversion](/fp2017/slide/08-knf.html), [Quiz](/fp2017/quiz/1023-unification.html)
 
-## Day 9 (Oct. 25): [Optimization](/fp2017/slide/09-optimize.html), Checkout the `ocamlinit.ml` file.
+## Day 9 (Oct. 25): [Optimization](/fp2017/slide/09-optimize.html), Checkout the [`ocamlinit.ml`](https://github.com/wakita/fp2017/blob/master/ocamlinit.ml) file.
 
 
 <!--
@@ -50,6 +50,8 @@ Reading assignment on Unification (see the slide)
 -->
 
 # Reference
+
+- [Course Repository on GitHub](https://github.com/wakita/fp2017)
 
 - MinCaml
     - [Overview](/fp2017/mincaml/overview.pdf)
