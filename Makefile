@@ -24,25 +24,25 @@ html: $(STML) $(PTML) $(QTML)
 docs/page/%.html: page/%.md
 	@echo "pandoc: $^ => $@"
 	@pandoc lib/page-header.md $^ lib/page-footer.md \
-	  --to html \
+	  --from markdown+smart \
+	  --to html+smart \
 	  --standalone \
 	  --output $@ \
           --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
 	  --css=/fp2017/lib/kw.css \
 	  --css=/fp2017/lib/kw-page.css \
-	  --mathjax \
-	  --smart
+	  --mathjax
 
 docs/quiz/%.html: quiz/%.md
 	@echo "pandoc: $^ => $@"
 	@pandoc $^ \
-	  --to html \
+	  --from markdown+smart \
+	  --to html+smart \
 	  --standalone \
 	  --output $@ \
 	  --css=/fp2017/lib/kw.css \
 	  --css=/fp2017/lib/kw-quiz.css \
-	  --mathjax \
-	  --smart
+	  --mathjax
 
 STML_DEV = docs/dev/kw.js docs/dev/phantom.js lib/slide.yaml
 
@@ -56,8 +56,9 @@ docs/slide/%.html: $(STML_DEV) slide/%.md
 	@# slide/*.md -> tmp/*.html
 	@echo "pandoc:    $(md) => $(html1)"
 	@pandoc lib/slide.yaml lib/slide-header.md $(md) lib/slide-footer.md\
-	  --to=revealjs --slide-level=2 \
-	  --template=lib/default.revealjs \
+	  --from markdown+smart \
+	  --to revealjs+smart --slide-level=2 \
+	  --template lib/default.revealjs \
 	  --standalone \
 	  --output=$(html1) \
  	  -V revealjs-url=/fp2017/lib/reveal.js-3.5.0 \
@@ -65,8 +66,7 @@ docs/slide/%.html: $(STML_DEV) slide/%.md
 	  -V slideNumber=true \
 	  -V width=1280 -V height=1024 \
 	  --css=/fp2017/lib/kw.css \
-	  --mathjax \
-	  --smart
+	  --mathjax
 
 	@# Then, PhantomJS is used to patch the temporary HTML and finishes it.
 	@echo "phantomjs: $(html1) => $(html2)"
@@ -76,14 +76,14 @@ docs/slide/%.html: $(STML_DEV) slide/%.md
 docs/assignment/%.html: assignment/%.md
 	@echo "pandoc: $^ => $@"
 	@pandoc lib/page-header.md $^ lib/page-footer.md \
-	  --to html \
+	  --from markdown+smart \
+	  --to html+smart \
 	  --standalone \
 	  --output $@ \
           --css=/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css \
 	  --css=/fp2017/lib/kw.css \
 	  --css=/fp2017/lib/kw-page.css \
-	  --mathjax \
-	  --smart
+	  --mathjax
 
 pdf: $(PDF)
 
