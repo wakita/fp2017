@@ -1,0 +1,224 @@
+<!DOCTYPE html><html class=" js no-mobile desktop no-ie safari safari538 fp2017-section tmp-section w-400 gt-240 gt-320 lt-480 lt-640 lt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920 no-portrait landscape gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions touch no-retina no-fontface domloaded" id="11-cconv-page"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ken Wakita (https://wakita.github.io/fp2017/)">
+  <title>Closure Conversion</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color = initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/fp2017/lib/reveal.js-3.5.0/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="/fp2017/lib/kw.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/fp2017/lib/reveal.js-3.5.0/css/print/pdf.css' : '/fp2017/lib/reveal.js-3.5.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><link rel="stylesheet" type="text/css" href="/fp2017/lib/reveal.js-3.5.0/css/print/paper.css">
+  <!--[if lt IE 9]>
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/html5shiv.js"></script>
+  <![endif]--><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/math/math.js"></script><script type="text/javascript" src="/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;">
+  <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
+    <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
+
+<section style="top: 229px; display: block;" class="present">
+  <h1 class="title">Closure Conversion</h1>
+  <p class="author">Ken Wakita (<a href="https://wakita.github.io/fp2017/" class="uri">https://wakita.github.io/fp2017/</a>)</p>
+  <p class="date">Nov 6, 2017</p>
+</section>
+
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="overview" class="title-slide slide level1" style="top: 391.5px; display: block;"><h1>Overview</h1></section><section id="compiler-pipeline" class="slide level2 future" aria-hidden="true" style="top: 268.5px; display: block;">
+<h2>Compiler Pipeline</h2>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> lexbuf outchan l =</div>
+<div class="sourceLine" id="2" href="#2" data-line-number="2">  ...... .......</div>
+<div class="sourceLine" id="3" href="#3" data-line-number="3">    (..........</div>
+<div class="sourceLine" id="4" href="#4" data-line-number="4">       (......</div>
+<div class="sourceLine" id="5" href="#5" data-line-number="5">          (.........</div>
+<div class="sourceLine" id="6" href="#6" data-line-number="6">             (Closure.f</div>
+<div class="sourceLine" id="7" href="#7" data-line-number="7">                (.... !.....</div>
+<div class="sourceLine" id="8" href="#8" data-line-number="8">                   (.......</div>
+<div class="sourceLine" id="9" href="#9" data-line-number="9">                      (.........</div>
+<div class="sourceLine" id="10" href="#10" data-line-number="10">                         (........</div>
+<div class="sourceLine" id="11" href="#11" data-line-number="11">                            (.......... ........... .)))))))))</div></code></pre>
+</section><section id="fp-style-functions" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>FP-style Functions</h2>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="2" href="#2" data-line-number="2"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="3" href="#3" data-line-number="3"><span class="kw">let</span> <span class="kw">rec</span> f x y =</div>
+<div class="sourceLine" id="4" href="#4" data-line-number="4">  a * x + b * y <span class="kw">in</span></div>
+<div class="sourceLine" id="5" href="#5" data-line-number="5"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (f <span class="dv">5</span> <span class="dv">6</span>);;</div></code></pre>
+<ul>
+<li><p>Assume no optimization is performed</p></li>
+<li>FP-style function: (e.g., <code>f</code>)
+<ul>
+<li>Parameters: <code>x</code> and <code>y</code></li>
+<li>Free variables: <code>a</code> and <code>b</code></li>
+</ul></li>
+<li>C-like
+<ul>
+<li>No free variables</li>
+</ul></li>
+<li>Problem:
+<ul>
+<li>How do we emulate FP-style function calling in C-like language.</li>
+</ul></li>
+</ul>
+</section><section id="closure-technique" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
+<h2>Closure technique</h2>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> f_in_c_style x y a b =</div>
+<div class="sourceLine" id="2" href="#2" data-line-number="2">  a * x + b * y <span class="kw">in</span></div>
+<div class="sourceLine" id="3" href="#3" data-line-number="3"></div>
+<div class="sourceLine" id="4" href="#4" data-line-number="4"><span class="kw">let</span> call_2params_2fvars arg1 arg2 closure =</div>
+<div class="sourceLine" id="5" href="#5" data-line-number="5">  <span class="kw">let</span> (a_function_in_c_style, (fv1, fv2)) = closure <span class="kw">in</span></div>
+<div class="sourceLine" id="6" href="#6" data-line-number="6">  a_function_in_c_style arg1 arg2 fv1 fv2 <span class="kw">in</span></div>
+<div class="sourceLine" id="7" href="#7" data-line-number="7"></div>
+<div class="sourceLine" id="8" href="#8" data-line-number="8"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="9" href="#9" data-line-number="9"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="10" href="#10" data-line-number="10"><span class="kw">let</span> closure = (f_in_c_style, (a, b)) <span class="kw">in</span></div>
+<div class="sourceLine" id="11" href="#11" data-line-number="11"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (call_2params_2fvars <span class="dv">5</span> <span class="dv">6</span> closure)</div></code></pre>
+</section></section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="back-to-top" class="title-slide slide level1" style="top: 391.5px; display: block;"><h1>Back to <a href="/fp2017/page/">Top</a></h1></section></section>
+    </div>
+  <div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background title-slide slide level1 present" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" data-loaded="true" style="display: block;"></div><div class="slide-background slide level2 future" style="display: none;"></div><div class="slide-background slide level2 future" style="display: none;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background title-slide slide level1 present" data-loaded="true" style="display: block;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down" aria-label="below slide" disabled="disabled"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">1</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+  Closure Conversion
+  Ken Wakita (https://wakita.github.io/fp2017/)
+  Nov 6, 2017
+</div></div>
+
+  <script src="/fp2017/lib/reveal.js-3.5.0/lib/js/head.min.js"></script>
+  <script src="/fp2017/lib/reveal.js-3.5.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 1024,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/fp2017/lib/reveal.js-3.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/math/math.js', async: true },
+          { src: '/fp2017/lib/reveal.js-3.5.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    
+
+</body></html>

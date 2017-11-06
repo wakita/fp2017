@@ -264,23 +264,3 @@ Prog ([{name      = (L incr.5, Fun ([Int], Int));
   ...)
 ~~~
 
-# Homework
-
-## Homework
-
-Due date
-: Nov 15 (Wed.)
-
-Method of submission
-: OCW-i assignment submission system
-
-More detail
-: will be announced on the evening of Nov 3 at OCW-i
-
-Answer either (or both) questions and submit your answer as a PDF document.  If you answer both questions the better answer will be chosen for your evaluation.
-
-1. What's $\alpha$-conversion for?  What kind of problems we will see if $\alpha$-conversion were not applied?  Find Min-Caml programs that give incorrect answers in absence of proper $\alpha$-conversion.
-
-1. Are optimization modules interdependent?  Yes, but in what way?  Find a pair of optimization modules $A$ and $B$ such that for a program $P$, $B$ is effective when it is applied after $A$:
-
-    $$^\exists P. B(P) = P \text { but } B(A(P)) \not= A(P)$$
