@@ -33,9 +33,7 @@ Reading assignment on Unification (see the slide)
 
 ## Day 10 (Nov. 1): [Optimization 2](/fp2017/slide/10-optimize.html)
 
-## Day 11 (Nov. 6): [Closure Conversion](/fp2017/slide/11-closure.html)
-
-- [Assignment](/fp2017/page/assignment3.html)
+## Day 11 (Nov. 6): [Closure Conversion](/fp2017/slide/11-closure.html) -- [Assignment](/fp2017/page/assignment3.html)
 
 <!--
 
@@ -70,3 +68,5 @@ Reading assignment on Unification (see the slide)
     - [English Web page](http://esumii.github.io/min-caml/index-e.html)
 
     - [English academic paper](http://esumii.github.io/min-caml/paper.pdf)
+
+    - [`to_x86` batch command](https://github.com/wakita/fp2017/issues/1)
