@@ -21,9 +21,7 @@ title: "Functional Programming"
 
 ## Day 5 (Oct. 12): [Min-caml organization](/fp2017/slide/05-mincaml.html)
 
-## Day 6 (Oct. 16): [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html)
-
-Reading assignment on Unification (see the slide)
+## Day 6 (Oct. 16): [Lexer / Parser / Abstract Syntax Tree](/fp2017/slide/06-parser.html) -- Reading assignment on Unification (see the slide)
 
 ## Day 7 (Oct. 19): [Typing](/fp2017/slide/07-typing.html), [A sample quiz](/fp2017/quiz/1019-unification.html)
 
