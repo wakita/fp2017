@@ -32,6 +32,7 @@ title: "Functional Programming"
 ## Day 10 (Nov. 1): [Optimization 2](/fp2017/slide/10-optimize.html)
 
 ## Day 11 (Nov. 6): [Closure Conversion](/fp2017/slide/11-closure.html) -- [Assignment](/fp2017/page/assignment3.html)
+## Day 12 (Nov. 9): [Implementation of Closure Conversion](/fp2017/slide/12-closure.html)
 
 <!--
 

@@ -156,7 +156,7 @@ $$\begin {align}
 \end {cases}
 \end {align}$$
 
-# More Smarter Conversion
+# Even Smarter Conversion
 
 ## Definition
 
