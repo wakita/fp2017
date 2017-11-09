@@ -1,6 +1,7 @@
 tmp/
 future/
 past/
+src/fp11/closure
 
 *.annot
 *.cmo
