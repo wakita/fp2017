@@ -56,7 +56,7 @@ $$\begin {align}
 {\cal C}_s(x\ y_1\ldots y_n) &=
 \begin {cases}
 \mathit {apply\_closure}(x, y_1, \ldots, y_n) & x \not\in s \\
-\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) & s \in s
+\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) & x \in s
 \end {cases}
 \end {align}$$
 
@@ -153,3 +153,9 @@ else e2'
 ~~~
 
 ![Toplevel Functions](/fp2017/mincaml/overview/closure2-impl4.png)
+
+## Issues KW Failed to Answer
+
+1. Aren't $\mathit {FV}(e) = \mathit {FV}(e')$ the same?
+
+1. Does `S.mem x (fv e2')` guarantee $\mathit {FV}(e_1') \setminus \{y_1, \ldots, y_n\} \not= \emptyset$?

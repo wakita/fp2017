@@ -33,7 +33,7 @@ pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
     padding: 0 4px; width: 4em; }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color = initial; }
+a.sourceLine::before { text-decoration: underline; color: initial; }
 }
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.dt { color: #902000; } /* DataType */
@@ -119,8 +119,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 #MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
 #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
 .MathJax_Error {color: #CC0000; font-style: italic}
-</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/contrib/a11y/accessibility-menu.js?V=2.7.0"></script></head>
-<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;"><div id="MathJax_Message" style="display: none;"></div>
+</style></head>
+<body style="-webkit-transition: -webkit-transform 0.8s ease; transition: -webkit-transform 0.8s ease;">
   <div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
     <div class="slides" style="width: 1280px; height: 1024px; left: 50%; top: 50%; bottom: auto; right: auto; -webkit-transform: translate(-50%, -50%) scale(0.28125);">
 
@@ -132,25 +132,25 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="overview" class="title-slide slide level1" style="top: 391.5px; display: block;"><h1>Overview</h1></section><section id="compiler-pipeline" class="slide level2 future" aria-hidden="true" style="top: 268.5px; display: block;">
 <h2>Compiler Pipeline</h2>
-<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> lexbuf outchan l =</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">  ...... .......</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">    (..........</div>
-<div class="sourceLine" id="4" href="#4" data-line-number="4">       (......</div>
-<div class="sourceLine" id="5" href="#5" data-line-number="5">          (.........</div>
-<div class="sourceLine" id="6" href="#6" data-line-number="6">             (Closure.f</div>
-<div class="sourceLine" id="7" href="#7" data-line-number="7">                (.... !.....</div>
-<div class="sourceLine" id="8" href="#8" data-line-number="8">                   (.......</div>
-<div class="sourceLine" id="9" href="#9" data-line-number="9">                      (.........</div>
-<div class="sourceLine" id="10" href="#10" data-line-number="10">                         (........</div>
-<div class="sourceLine" id="11" href="#11" data-line-number="11">                            (.......... ........... .)))))))))</div></code></pre>
+<pre class="sourceCode ocaml" id="cb1"><code class="sourceCode ocaml"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">let</span> lexbuf outchan l =</div>
+<div class="sourceLine" id="cb1-2" data-line-number="2">  ...... .......</div>
+<div class="sourceLine" id="cb1-3" data-line-number="3">    (..........</div>
+<div class="sourceLine" id="cb1-4" data-line-number="4">       (......</div>
+<div class="sourceLine" id="cb1-5" data-line-number="5">          (.........</div>
+<div class="sourceLine" id="cb1-6" data-line-number="6">             (Closure.f</div>
+<div class="sourceLine" id="cb1-7" data-line-number="7">                (.... !.....</div>
+<div class="sourceLine" id="cb1-8" data-line-number="8">                   (.......</div>
+<div class="sourceLine" id="cb1-9" data-line-number="9">                      (.........</div>
+<div class="sourceLine" id="cb1-10" data-line-number="10">                         (........</div>
+<div class="sourceLine" id="cb1-11" data-line-number="11">                            (.......... ........... .)))))))))</div></code></pre>
 </section></section>
 <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section id="functions-and-closures" class="title-slide slide level1" style="top: 301px; display: block;"><h1>Functions and Closures</h1></section><section id="fp-style-functions" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>FP-style Functions</h2>
-<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3"><span class="kw">let</span> <span class="kw">rec</span> f x y =</div>
-<div class="sourceLine" id="4" href="#4" data-line-number="4">  a * x + b * y <span class="kw">in</span></div>
-<div class="sourceLine" id="5" href="#5" data-line-number="5"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (f <span class="dv">5</span> <span class="dv">6</span>);;</div></code></pre>
+<pre class="sourceCode ocaml" id="cb2"><code class="sourceCode ocaml"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">let</span> <span class="kw">rec</span> f x y =</div>
+<div class="sourceLine" id="cb2-4" data-line-number="4">  a * x + b * y <span class="kw">in</span></div>
+<div class="sourceLine" id="cb2-5" data-line-number="5"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (f <span class="dv">5</span> <span class="dv">6</span>);;</div></code></pre>
 <ul>
 <li><p>Assume no optimization is performed</p></li>
 <li>FP-style function: (e.g., <code>f</code>)
@@ -169,33 +169,33 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 </section><section id="closure-technique-ocaml-version" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Closure technique (OCaml version)</h2>
-<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">let</span> apply_2arg_2fv arg1 arg2 closure =</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">  <span class="kw">let</span> a_function_implementation, (fv1, fv2) = closure <span class="kw">in</span></div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">  a_function_implementation arg1 arg2 fv1 fv2 <span class="kw">in</span></div>
-<div class="sourceLine" id="4" href="#4" data-line-number="4"></div>
-<div class="sourceLine" id="5" href="#5" data-line-number="5"><span class="kw">let</span> <span class="kw">rec</span> f_implementation x y a b =</div>
-<div class="sourceLine" id="6" href="#6" data-line-number="6">  a * x + b * y <span class="kw">in</span></div>
-<div class="sourceLine" id="7" href="#7" data-line-number="7"></div>
-<div class="sourceLine" id="8" href="#8" data-line-number="8"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
-<div class="sourceLine" id="9" href="#9" data-line-number="9"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
-<div class="sourceLine" id="10" href="#10" data-line-number="10"><span class="kw">let</span> closure = (f_implementation, (a, b)) <span class="kw">in</span></div>
-<div class="sourceLine" id="11" href="#11" data-line-number="11"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (apply_2arg_2fv <span class="dv">5</span> <span class="dv">6</span> closure)</div></code></pre>
+<pre class="sourceCode ocaml" id="cb3"><code class="sourceCode ocaml"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">let</span> apply_2arg_2fv arg1 arg2 closure =</div>
+<div class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">let</span> a_function_implementation, (fv1, fv2) = closure <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-3" data-line-number="3">  a_function_implementation arg1 arg2 fv1 fv2 <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">let</span> <span class="kw">rec</span> f_implementation x y a b =</div>
+<div class="sourceLine" id="cb3-6" data-line-number="6">  a * x + b * y <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-7" data-line-number="7"></div>
+<div class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw">let</span> a = <span class="dv">3</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-9" data-line-number="9"><span class="kw">let</span> b = <span class="dv">4</span> <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw">let</span> closure = (f_implementation, (a, b)) <span class="kw">in</span></div>
+<div class="sourceLine" id="cb3-11" data-line-number="11"><span class="dt">Printf</span>.printf <span class="st">"%d</span><span class="ch">\n</span><span class="st">"</span> (apply_2arg_2fv <span class="dv">5</span> <span class="dv">6</span> closure)</div></code></pre>
 </section><section id="closure-technique-c-equivalent" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>Closure technique (C equivalent)</h2>
-<pre class="sourceCode c"><code class="sourceCode c"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">  <span class="dt">int</span> (*fp)(<span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>);</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">  <span class="dt">int</span> fv1; <span class="dt">int</span> fv2; } Closure_II_II_I;</div>
-<div class="sourceLine" id="4" href="#4" data-line-number="4"></div>
-<div class="sourceLine" id="5" href="#5" data-line-number="5"><span class="dt">int</span> apply_II_II_I(<span class="dt">int</span> v1, <span class="dt">int</span> v2, Closure_II_II_I *closure) {</div>
-<div class="sourceLine" id="6" href="#6" data-line-number="6">  <span class="dt">int</span> (*fp)(<span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>) = closure-&gt;fp;</div>
-<div class="sourceLine" id="7" href="#7" data-line-number="7">  <span class="dt">int</span> fv1 = closure-&gt;fv1, fv2 = closure-&gt;fv2;</div>
-<div class="sourceLine" id="8" href="#8" data-line-number="8">  <span class="cf">return</span> fp(v1, v2, fv1, fv2); }</div></code></pre>
-<pre class="sourceCode c"><code class="sourceCode c"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="dt">int</span> f_in_c_style(<span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="cf">return</span> a * x + b * y; }</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2"></div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3"><span class="dt">int</span> main() {</div>
-<div class="sourceLine" id="4" href="#4" data-line-number="4">  <span class="dt">const</span> <span class="dt">int</span> a = <span class="dv">3</span>, b = <span class="dv">4</span>;</div>
-<div class="sourceLine" id="5" href="#5" data-line-number="5">  Closure_II_II_I closure_f = { f_in_c_style, a, b };</div>
-<div class="sourceLine" id="6" href="#6" data-line-number="6">  printf(<span class="st">"%d</span><span class="sc">\n</span><span class="st">"</span>, apply_II_II_I(<span class="dv">5</span>, <span class="dv">6</span>, &amp;closure_f)); }</div></code></pre>
+<pre class="sourceCode c" id="cb4"><code class="sourceCode c"><div class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</div>
+<div class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">int</span> (*fp)(<span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>);</div>
+<div class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">int</span> fv1; <span class="dt">int</span> fv2; } Closure_II_II_I;</div>
+<div class="sourceLine" id="cb4-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb4-5" data-line-number="5"><span class="dt">int</span> apply_II_II_I(<span class="dt">int</span> v1, <span class="dt">int</span> v2, Closure_II_II_I *closure) {</div>
+<div class="sourceLine" id="cb4-6" data-line-number="6">  <span class="dt">int</span> (*fp)(<span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>, <span class="dt">int</span>) = closure-&gt;fp;</div>
+<div class="sourceLine" id="cb4-7" data-line-number="7">  <span class="dt">int</span> fv1 = closure-&gt;fv1, fv2 = closure-&gt;fv2;</div>
+<div class="sourceLine" id="cb4-8" data-line-number="8">  <span class="cf">return</span> fp(v1, v2, fv1, fv2); }</div></code></pre>
+<pre class="sourceCode c" id="cb5"><code class="sourceCode c"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="dt">int</span> f_in_c_style(<span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="cf">return</span> a * x + b * y; }</div>
+<div class="sourceLine" id="cb5-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb5-3" data-line-number="3"><span class="dt">int</span> main() {</div>
+<div class="sourceLine" id="cb5-4" data-line-number="4">  <span class="dt">const</span> <span class="dt">int</span> a = <span class="dv">3</span>, b = <span class="dv">4</span>;</div>
+<div class="sourceLine" id="cb5-5" data-line-number="5">  Closure_II_II_I closure_f = { f_in_c_style, a, b };</div>
+<div class="sourceLine" id="cb5-6" data-line-number="6">  printf(<span class="st">"%d</span><span class="sc">\n</span><span class="st">"</span>, apply_II_II_I(<span class="dv">5</span>, <span class="dv">6</span>, &amp;closure_f)); }</div></code></pre>
 </section></section>
 <section style="top: 512px; display: none;" hidden="" aria-hidden="true" class="stack future"><section id="naive-closure-conversion" class="title-slide slide level1" style="top: 512px; display: none;"><h1>Naive Closure Conversion</h1></section><section id="the-format-of-naive-closure-conversion" class="slide level2 future" aria-hidden="true" style="top: 512px; display: none;">
 <h2>The Format of Naive Closure Conversion</h2>
@@ -254,7 +254,7 @@ s&amp;: \text {The set of known closed functions} \\
 {\cal C}_s(x\ y_1\ldots y_n) &amp;=
 \begin {cases}
 \mathit {apply\_closure}(x, y_1, \ldots, y_n) &amp; x \not\in s \\
-\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) &amp; s \in s
+\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) &amp; x \in s
 \end {cases}
 \end {align}\]</span></p>
 </section></section>

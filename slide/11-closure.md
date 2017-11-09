@@ -152,7 +152,7 @@ $$\begin {align}
 {\cal C}_s(x\ y_1\ldots y_n) &=
 \begin {cases}
 \mathit {apply\_closure}(x, y_1, \ldots, y_n) & x \not\in s \\
-\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) & s \in s
+\mathit {apply\_direct}(\mathtt {L}_x, y_1, \ldots, y_n) & x \in s
 \end {cases}
 \end {align}$$
 
