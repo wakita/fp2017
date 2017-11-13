@@ -35,3 +35,8 @@ let elim      = compose Elim.f alpha
 
 let clconv_p = "print(let a = 1 in let rec incr x = x + a in incr 5)"
 let clconv    = compose Closure.f alpha
+
+let assignment = "let x = 1 in let rec f y z = x + y + z in print_int(f 2 3)"
+
+let vm = compose Virtual.f clconv
+let reg = compose RegAlloc.f vm
