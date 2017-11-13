@@ -34,6 +34,7 @@ title: "Functional Programming"
 ## Day 11 (Nov. 6): [Closure Conversion](/fp2017/slide/11-closure.html) -- [Assignment](/fp2017/page/assignment3.html)
 ## Day 12 (Nov. 9): [Implementation of Closure Conversion](/fp2017/slide/12-closure.html)
 
+## Day 13 (Nov. 13): [Virutal Code Generation](/fp2017/slide/13-virtual.html), [Register Allocation](/fp2017/slide/13-register.html)
 <!--
 
 - Oct. 12: Lexer and parser
