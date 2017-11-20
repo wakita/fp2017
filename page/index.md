@@ -35,6 +35,8 @@ title: "Functional Programming"
 ## Day 12 (Nov. 9): [Implementation of Closure Conversion](/fp2017/slide/12-closure.html)
 
 ## Day 13 (Nov. 13): [Virutal Code Generation](/fp2017/slide/13-virtual.html), [Register Allocation](/fp2017/slide/13-register.html)
+
+## Day 14 (Nov. 20): [Register Allocation](/fp2017/slide/13-register.html) + small assignment to be announced on OCW-i
 <!--
 
 - Oct. 12: Lexer and parser
